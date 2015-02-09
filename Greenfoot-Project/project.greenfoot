@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Feb 09 17:04:19 EST 2015
+#Mon Feb 09 17:08:41 EST 2015
 target1.type=ClassTarget
 class.NonvectorEntity.superclass=greenfoot.Actor
 project.charset=UTF-8
@@ -12,6 +12,7 @@ target2.x=200
 target1.typeParameters=
 class.TestMan.superclass=VectorEntity
 target1.height=50
+class.Platorms.superclass=NonvectorEntity
 target2.width=80
 mainWindow.y=77
 target1.width=100
