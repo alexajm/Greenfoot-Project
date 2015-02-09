@@ -10,6 +10,7 @@ public class VectorEntity extends Actor
 {
     private double xComp; //The net force vector's x-component
     private double yComp; //The net force vector's y-component
+    private double magnitude; //The magnitude of the force acting on actor
     final double pi = Math.PI;
     
     /**
@@ -47,6 +48,9 @@ public class VectorEntity extends Actor
     public double getMagnitude() { //The vector's magnitude in cells
         return Math.sqrt(Math.pow(xComp, 2)+Math.pow(yComp, 2));
     }
+    public void setMagnitude(double mag){ //Sets magnitude
+        magnitude = mag;
+    }
     public void changeXComp(double xValue) {
         xComp = xValue;
     }
@@ -71,7 +75,8 @@ public class VectorEntity extends Actor
         if (getY()>=getWorld().getHeight()-40) {
             changeYComp(0.0);
         } else {
-            accelerate((3*pi)/2, -1);
+            setMagnitude(-1);
+            accelerate((3*pi)/2, magnitude);
         }
     }
     public void move() {
@@ -90,8 +95,9 @@ public class VectorEntity extends Actor
             gravity();
         }
        else
-        {
-            accelerate(3*pi/2, 0);
-        }
+       {
+           setMagnitude(0);
+            accelerate(pi, magnitude);
+       }
     }
 }
