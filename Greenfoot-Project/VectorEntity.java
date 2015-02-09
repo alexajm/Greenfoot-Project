@@ -80,19 +80,18 @@ public class VectorEntity extends Actor
         setLocation((int)x, (int)y);
     }
     public void accelerate(double direction, double magnitude) {
-        Vector force = new Vector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
-        addVector(force);
+        addVector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
     }
-    //public void applyGravity()
-    //{
-    //    Actor main = getOneIntersectingObject(Platform.class);
-    //    if (main == null)
-    //    {
-    //        gravity();
-    //    }
-    //    else
-    //    {
-    //        accelerate(3*pi/2, 0);
-    //    }
-    //}
+    public void applyGravity()
+    {
+       Actor main = getOneIntersectingObject(Platform.class);
+       if (main == null)
+        {
+            gravity();
+        }
+       else
+        {
+            accelerate(3*pi/2, 0);
+        }
+    }
 }
