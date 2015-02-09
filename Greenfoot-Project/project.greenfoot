@@ -1,7 +1,16 @@
 #Greenfoot properties
+<<<<<<< HEAD
 #Mon Feb 09 17:08:41 EST 2015
+=======
+<<<<<<< Updated upstream
+#Mon Feb 09 17:04:19 EST 2015
+>>>>>>> origin/master
 target1.type=ClassTarget
 class.NonvectorEntity.superclass=greenfoot.Actor
+=======
+#Mon Feb 09 17:05:21 EST 2015
+target1.type=ClassTarget
+>>>>>>> Stashed changes
 project.charset=UTF-8
 mainWindow.height=504
 target2.type=ClassTarget
@@ -12,8 +21,17 @@ target2.x=200
 target1.typeParameters=
 class.TestMan.superclass=VectorEntity
 target1.height=50
+<<<<<<< HEAD
 class.Platorms.superclass=NonvectorEntity
+=======
+<<<<<<< Updated upstream
 target2.width=80
+=======
+class.TestWorld.superclass=greenfoot.World
+>>>>>>> origin/master
+target2.width=80
+class.TestWorld.image=bricks2.jpg
+>>>>>>> Stashed changes
 mainWindow.y=77
 target1.width=100
 mainWindow.x=52
@@ -21,10 +39,19 @@ target2.typeParameters=
 package.numDependencies=0
 target1.y=10
 target1.x=90
+<<<<<<< Updated upstream
 package.numTargets=2
 mainWindow.width=835
+=======
+mainWindow.width=835
+package.numTargets=2
+>>>>>>> Stashed changes
 target1.name=VectorEntity
 target1.showInterface=false
 target2.showInterface=false
 target2.name=TestMan
+<<<<<<< Updated upstream
+=======
+class.Player.superclass=VectorEntity
+>>>>>>> Stashed changes
 target2.height=50
