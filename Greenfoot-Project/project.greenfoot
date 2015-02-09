@@ -1,59 +1,19 @@
 #Greenfoot properties
-<<<<<<< HEAD
-#Mon Feb 09 17:28:37 EST 2015
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-#Mon Feb 09 17:08:41 EST 2015
-=======
-<<<<<<< Updated upstream
-#Mon Feb 09 17:04:19 EST 2015
->>>>>>> origin/master
->>>>>>> origin/master
+#Mon Feb 09 17:58:26 EST 2015
 target1.type=ClassTarget
-class.NonvectorEntity.superclass=greenfoot.Actor
 project.charset=UTF-8
 mainWindow.height=504
 target2.type=ClassTarget
 version=2.6.0
-=======
-#Mon Feb 09 17:14:29 EST 2015
->>>>>>> Stashed changes
 class.VectorEntity.superclass=greenfoot.Actor
-<<<<<<< HEAD
 target2.y=10
 class.Enemies.superclass=VectorEntity
 target2.x=200
 target1.typeParameters=
-=======
-target2.name=TestWorld
-target2.naviview.expanded=true
-target4.y=10
-target4.x=200
-class.TestWorld.superclass=greenfoot.World
-target4.name=TestMan
-target2.editor.height=700
-target2.showInterface=false
-target1.editor.width=900
-target3.y=70
-target3.x=70
->>>>>>> origin/master
+class.Platform.superclass=greenfoot.Actor
 class.TestMan.superclass=VectorEntity
-target4.editor.y=35
-target4.editor.x=16
-target1.type=ClassTarget
-target3.type=ClassTarget
-target2.y=70
-package.numTargets=4
-target2.x=160
-target4.editor.width=900
+world.lastInstantiated=TestWorld
 target1.height=50
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
->>>>>>> origin/master
-class.Platorms.superclass=NonvectorEntity
 class.Platorm.superclass=NonvectorEntity
 class.TestWorld.superclass=greenfoot.World
 target2.width=80
@@ -62,56 +22,14 @@ target1.width=100
 mainWindow.x=52
 target2.typeParameters=
 package.numDependencies=0
-<<<<<<< HEAD
 target1.y=10
 target1.x=90
 package.numTargets=2
 mainWindow.width=835
 target1.name=VectorEntity
+class.Platform.image=bricks2.jpg
 target1.showInterface=false
 target2.showInterface=false
 target2.name=TestMan
 class.Player.superclass=VectorEntity
-=======
-=======
-target4.editor.height=700
-class.TestMan.image=man01.png
-target4.showInterface=false
-class.Player.superclass=VectorEntity
->>>>>>> Stashed changes
-target1.y=10
->>>>>>> origin/master
 target2.height=50
-target1.x=90
-target4.typeParameters=
-class.NonvectorEntity.superclass=greenfoot.Actor
-target1.editor.height=700
-target3.height=50
-target1.showInterface=false
-target3.typeParameters=
-target1.name=VectorEntity
-target4.height=50
-target2.typeParameters=
-target3.name=Player
-target1.typeParameters=
-mainWindow.width=852
-target1.editor.y=37
-target1.editor.x=299
-target2.width=90
-mainWindow.height=520
-target1.width=100
-mainWindow.y=103
-target4.width=80
-mainWindow.x=130
-target3.width=80
-target2.type=ClassTarget
-target3.showInterface=false
-world.lastInstantiated=TestWorld
-target4.type=ClassTarget
-target2.editor.y=37
-target2.editor.x=40
-version=2.6.0
-package.numDependencies=0
-project.charset=UTF-8
-target2.editor.width=900
-class.TestWorld.image=bricks2.jpg
