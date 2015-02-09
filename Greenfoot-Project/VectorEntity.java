@@ -10,6 +10,7 @@ public class VectorEntity extends Actor
 {
     private double xComp; //The net force vector's x-component
     private double yComp; //The net force vector's y-component
+    final double pi = Math.PI;
     
     /**
      * Act - do whatever the VectorEntity wants to do. This method is called whenever
@@ -17,7 +18,8 @@ public class VectorEntity extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        gravity();
+        move();
     }   
     public VectorEntity(double xValue, double yValue) { //A constructor that accepts x- and y-components
         xComp = xValue;
@@ -64,5 +66,20 @@ public class VectorEntity extends Actor
     }
     public String norm() {
         return "(" + getUnitXComp() + ", " + getUnitYComp() + ")";
+    }
+    public void gravity() {
+        if (getY()>=getWorld().getHeight()-35) {
+            changeYComp(0.0);
+        } else {
+            accelerate((3*pi)/2, -1);
+        }
+    }
+    public void move() {
+        double x = getX() + getXComp();
+        double y = getY() + getYComp();
+        setLocation((int)x, (int)y);
+    }
+    public void accelerate(double direction, double magnitude) {
+        addVector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
     }
 }
