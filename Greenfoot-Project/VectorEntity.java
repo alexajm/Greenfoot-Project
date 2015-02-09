@@ -18,7 +18,7 @@ public class VectorEntity extends Actor
      */
     public void act() 
     {
-        applyGravity();
+        gravity();
         move();
     }   
     public VectorEntity(double xValue, double yValue) { //A constructor that accepts x- and y-components
@@ -82,16 +82,16 @@ public class VectorEntity extends Actor
     public void accelerate(double direction, double magnitude) {
         addVector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
     }
-    public void applyGravity()
-    {
-        Actor main = getOneIntersectingObject(Platform.class);
-        if (main == null)
-        {
-            gravity();
-        }
-        else
-        {
-            accelerate((3*pi)/2, 0);
-        }
-    }
+    //public void applyGravity()
+    //{
+    //    Actor main = getOneIntersectingObject(Platform.class);
+    //    if (main == null)
+    //    {
+    //        gravity();
+    //    }
+    //    else
+    //    {
+    //        accelerate(3*pi/2, 0);
+    //    }
+    //}
 }

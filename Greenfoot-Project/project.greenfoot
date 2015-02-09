@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Feb 09 17:58:26 EST 2015
+#Mon Feb 09 18:10:07 EST 2015
 target1.type=ClassTarget
 project.charset=UTF-8
 mainWindow.height=504
@@ -14,7 +14,8 @@ class.Platform.superclass=greenfoot.Actor
 class.TestMan.superclass=VectorEntity
 world.lastInstantiated=TestWorld
 target1.height=50
-class.Platorm.superclass=NonvectorEntity
+class.Enemies.image=man01.png
+class.Platorm.superclass=
 class.TestWorld.superclass=greenfoot.World
 target2.width=80
 mainWindow.y=77
