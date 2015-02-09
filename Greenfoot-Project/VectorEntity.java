@@ -80,7 +80,8 @@ public class VectorEntity extends Actor
         setLocation((int)x, (int)y);
     }
     public void accelerate(double direction, double magnitude) {
-        addVector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
+        Vector force = new Vector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
+        addVector(force);
     }
     //public void applyGravity()
     //{
