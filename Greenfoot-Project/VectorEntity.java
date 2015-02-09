@@ -97,7 +97,7 @@ public class VectorEntity extends Actor
        else
        {
            setMagnitude(0);
-            accelerate(pi, magnitude);
+           accelerate(pi, magnitude);
        }
     }
 }
