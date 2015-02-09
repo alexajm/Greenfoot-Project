@@ -1,4 +1,27 @@
-#Greenfoot properties
-#Mon Feb 09 16:37:51 EST 2015
+#Greenfoot project file
+class.TestMan.superclass=VectorEntity
+class.VectorEntity.superclass=greenfoot.Actor
+mainWindow.height=504
+mainWindow.width=835
+mainWindow.x=52
+mainWindow.y=77
+package.numDependencies=0
+package.numTargets=2
 project.charset=UTF-8
+target1.height=50
+target1.name=VectorEntity
+target1.showInterface=false
+target1.type=ClassTarget
+target1.typeParameters=
+target1.width=100
+target1.x=90
+target1.y=10
+target2.height=50
+target2.name=TestMan
+target2.showInterface=false
+target2.type=ClassTarget
+target2.typeParameters=
+target2.width=80
+target2.x=200
+target2.y=10
 version=2.6.0
