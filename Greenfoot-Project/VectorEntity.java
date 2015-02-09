@@ -68,7 +68,7 @@ public class VectorEntity extends Actor
         return "(" + getUnitXComp() + ", " + getUnitYComp() + ")";
     }
     public void gravity() {
-        if (getY()>=getWorld().getHeight()-35) {
+        if (getY()>=getWorld().getHeight()-40) {
             changeYComp(0.0);
         } else {
             accelerate((3*pi)/2, -1);
