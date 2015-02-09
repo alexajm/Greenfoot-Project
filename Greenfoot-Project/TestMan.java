@@ -14,6 +14,7 @@ public class TestMan extends VectorEntity
      */
     public void act() 
     {
+        super.act();
         checkKeys();
     }
     public void checkKeys() {
@@ -21,7 +22,9 @@ public class TestMan extends VectorEntity
             move(-5);
         if (Greenfoot.isKeyDown("Right"))
             move(5);
-        if (Greenfoot.isKeyDown("Up") && getY()>=getWorld().getHeight()-35)
+        if (Greenfoot.isKeyDown("Up") && getY()>=getWorld().getHeight()-40) {
             accelerate(3*pi/2, 15);
+            System.out.println("Up detected");
+        }
     }
 }
