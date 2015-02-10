@@ -81,7 +81,6 @@ public class VectorEntity extends Actor
     }
     public void accelerate(double direction, double magnitude) { //Accelerates an object in a certain direction with a certain magnitude
         addVector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
-        System.out.println("Accelerated");
     }
     public boolean onGround() //Platform detection, stops enemy if he hits a platform and lets him randomly move if he doesn't
     {
@@ -142,10 +141,13 @@ public class VectorEntity extends Actor
     }
     public void applyGravity()
     {
-        if (!onGround())
-        {
-            gravity();
-        }
+    if (!onGround())
+    {
+         gravity();
+    }
+    else
+    {
+         
     }
     public void collisionTest()
     {
