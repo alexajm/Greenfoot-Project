@@ -19,7 +19,7 @@ public class VectorEntity extends Actor
      */
     public void act() 
     {
-        gravity();
+        applyGravity();
         move();
     }   
     public VectorEntity(double xValue, double yValue) { //A constructor that accepts x- and y-components
@@ -48,9 +48,6 @@ public class VectorEntity extends Actor
     public double getMagnitude() { //The vector's magnitude in cells
         return Math.sqrt(Math.pow(xComp, 2)+Math.pow(yComp, 2));
     }
-    public void setMagnitude(double mag){ //Sets magnitude
-        magnitude = mag;
-    }
     public void changeXComp(double xValue) {
         xComp = xValue;
     }
@@ -75,8 +72,8 @@ public class VectorEntity extends Actor
         if (getY()>=getWorld().getHeight()-20) {
             changeYComp(0.0);
         } else {
-            setMagnitude(-1);
-            accelerate((3*pi)/2, magnitude);
+
+            accelerate((3*pi)/2, -1);
         }
     }
     public void move() {
@@ -86,18 +83,40 @@ public class VectorEntity extends Actor
     }
     public void accelerate(double direction, double magnitude) {
         addVector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
+    
+    }
+    public boolean onGround() //Platform detection, stops enemy if he hits a platform and lets him randomly move if he doesn't
+    {
+        int actorHeight = getImage().getHeight();
+        int lookForGround = (int) (actorHeight/2);
+        Actor ground = getOneObjectAtOffset(0, lookForGround, Platform.class);
+        if (ground == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+       
     }
     public void applyGravity()
     {
-       Actor main = getOneIntersectingObject(Platform.class);
-       if (main == null)
+        if (!onGround())
         {
             gravity();
         }
-       else
-       {
-           setMagnitude(0);
-           accelerate(pi, magnitude);
-       }
+    }
+    public void collisionTest()
+    {
+        if (canSee(Platform.class))
+        {
+            accelerate(3*pi/2, -1);
+        }
+    }
+    public boolean canSee(Class clss) 
+    {
+        return getOneObjectAtOffset(0, 0, clss) != null;
     }
 }
+

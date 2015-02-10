@@ -15,37 +15,19 @@ public class Enemies extends VectorEntity
      */
     public void act() 
     {
-        randomMove();
-        onGround();
+        move();
     }   
     
-    public void randomMove() //Randomly moves the enemy left or right
+    public void move() //Randomly moves the enemy left or right
     {
-        if (randomNum==1)
+        while(onGround())
         {
             move(-5);
         }
-        else
-        {
-            move(5);
-        }
+        move(5);
     }
+        
     
-    public boolean onGround() //Platform detection, stops enemy if he hits a platform and lets him randomly move if he doesn't
-    {
-        int actorHeight = getImage().getHeight();
-        int lookForGround = (int) (actorHeight/2) + 5;
-        Actor ground = getOneObjectAtOffset(0, lookForGround, Platform.class);
-        if (ground == null)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-
-    }
 }
     
   
