@@ -16,11 +16,10 @@ public class Diamond extends NonvectorEntities
     {
         checkForPlayer();
     } 
-    private void checkForPlayer() {
+    private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, 0, TestMan.class);
-        System.out.println("Diamond touch");
         if (player!=null) {
-            numDiamonds++;
+            Scorekeeper.incrementDiamonds();
             getWorld().removeObject(this);
         }
     }
