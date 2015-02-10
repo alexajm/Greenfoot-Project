@@ -10,8 +10,7 @@ public class VectorEntity extends Actor
 {
     private double xComp; //The net force vector's x-component
     private double yComp; //The net force vector's y-component
-    private double magnitude; //The magnitude of the force acting on actor
-    final double pi = Math.PI;
+    final double pi = Math.PI; //Writing Math.PI all the time is annoying
     
     /**
      * Act - do whatever the VectorEntity wants to do. This method is called whenever
@@ -19,8 +18,8 @@ public class VectorEntity extends Actor
      */
     public void act() 
     {
-        applyGravity();
         move();
+        gravity();
     }   
     public VectorEntity(double xValue, double yValue) { //A constructor that accepts x- and y-components
         xComp = xValue;
@@ -30,16 +29,16 @@ public class VectorEntity extends Actor
         xComp = 0;
         yComp = 0;
     }
-    public double getXComp() {
+    public double getXComp() { //Returns the x-component of the vector
         return xComp;
     }
-    public double getYComp() {
+    public double getYComp() { //Returns the y-component of the vector
         return yComp;
     }
-    public double getUnitXComp() {
+    public double getUnitXComp() { //Returns the x-component of the unit vector
         return xComp/Math.sqrt(Math.pow(xComp, 2)+Math.pow(yComp, 2));
     }
-    public double getUnitYComp() {
+    public double getUnitYComp() { //Returns the y-component of the unit vector
         return yComp/Math.sqrt(Math.pow(xComp, 2)+Math.pow(yComp, 2));
     }
     public double getDirection() { //The vector's direction in radians
@@ -48,42 +47,41 @@ public class VectorEntity extends Actor
     public double getMagnitude() { //The vector's magnitude in cells
         return Math.sqrt(Math.pow(xComp, 2)+Math.pow(yComp, 2));
     }
-    public void changeXComp(double xValue) {
+    public void changeXComp(double xValue) { //Changes the vector's x-component
         xComp = xValue;
     }
-    public void changeYComp(double yValue) {
+    public void changeYComp(double yValue) { //Changes the vector's y-component
         yComp = yValue;
     }
-    public void addVector(double xValue, double yValue) {
+    public void addVector(double xValue, double yValue) { //Adds one vector to another
         xComp += xValue;
         yComp += yValue;
     }
-    public void subtractVector(double xValue, double yValue) {
+    public void subtractVector(double xValue, double yValue) { //Subtracts one vector from another
         xComp -= xValue;
         yComp -= yValue;
     }
-    public String toString() {
+    public String toString() { //Converts vector to string
         return "(" + xComp + ", " + yComp + ")";
     }
-    public String norm() {
+    public String norm() { //Converts unit vector to string
         return "(" + getUnitXComp() + ", " + getUnitYComp() + ")";
     }
-    public void gravity() {
-        if (getY()>=getWorld().getHeight()-20) {
+    public void gravity() { //Applies gravity to VectorEntities that are not on the ground
+        if (getY()>=getWorld().getHeight()-35) {
             changeYComp(0.0);
         } else {
-
             accelerate((3*pi)/2, -1);
         }
     }
-    public void move() {
+    public void move() { //Applies movement based on the direction and magnitude of an object's force vector
         double x = getX() + getXComp();
         double y = getY() + getYComp();
         setLocation((int)x, (int)y);
     }
-    public void accelerate(double direction, double magnitude) {
+    public void accelerate(double direction, double magnitude) { //Accelerates an object in a certain direction with a certain magnitude
         addVector(magnitude*Math.cos(direction), magnitude*Math.sin(direction));
-    
+        System.out.println("Accelerated");
     }
     public boolean onGround() //Platform detection, stops enemy if he hits a platform and lets him randomly move if he doesn't
     {
