@@ -20,11 +20,10 @@ public class Enemies extends VectorEntity
     
     public void move() //Randomly moves the enemy left or right
     {
-        while(onGround())
+        if(onGround())
         {
             move(-5);
-        }
-        move(5);
+        }   
     }
         
     

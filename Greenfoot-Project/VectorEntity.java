@@ -87,7 +87,7 @@ public class VectorEntity extends Actor
     }
     public boolean onGround() //Platform detection, stops enemy if he hits a platform and lets him randomly move if he doesn't
     {
-        int actorHeight = getImage().getHeight();
+        int actorHeight = getImage().getHeight()+5;
         int lookForGround = (int) (actorHeight/2);
         Actor ground = getOneObjectAtOffset(0, lookForGround, Platform.class);
         if (ground == null)
@@ -99,6 +99,48 @@ public class VectorEntity extends Actor
             return true;
         }
        
+    }
+    public boolean lookForRightWall()
+    {
+        int actorWidth = getImage().getWidth();
+        int lookForRightWall = (int) (actorWidth/2);
+        Actor rightWall = getOneObjectAtOffset(lookForRightWall, 0, Platform.class);
+        if (rightWall == null)
+        {
+            return false;
+        }
+        else
+        {
+            stopAtRightWall(rightWall);
+            return true;
+        }
+    }
+    public void stopAtRightWall(Actor rightWall)
+    {
+        int wallWidth = rightWall.getImage().getWidth();
+        int dX = rightWall.getX() - (wallWidth + getImage().getWidth())/2;
+        setLocation(dX - 5, getY());
+    }
+    public boolean lookForLeftWall()
+    {
+        int actorWidth = getImage().getWidth();
+        int lookForLeftWall = (int) (actorWidth/-2);
+        Actor leftWall = getOneObjectAtOffset(lookForLeftWall, 0, Platform.class);
+        if (leftWall == null)
+        {
+            return false;
+        }
+        else
+        {
+            stopAtLeftWall(leftWall);
+            return true;
+        }
+    }
+    public void stopAtLeftWall(Actor leftWall)
+    {
+        int wallWidth = leftWall.getImage().getWidth();
+        int dX = leftWall.getX() - (wallWidth + getImage().getWidth())/2;
+        setLocation(dX+5, getY());
     }
     public void applyGravity()
     {
