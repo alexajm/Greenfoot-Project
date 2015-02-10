@@ -14,6 +14,6 @@ public class Player extends VectorEntity
      */
     public void act() 
     {
-        // Add your action code here.
+        super.act();
     }    
 }
