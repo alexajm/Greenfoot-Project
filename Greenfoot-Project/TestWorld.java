@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TestWorld extends World
 {
-
     /**
      * Constructor for objects of class TestWorld.
      * 
