@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TestMan extends VectorEntity
 {
+    private static int numDiamonds = 0;
+    
     /**
      * Act - do whatever the TestMan wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

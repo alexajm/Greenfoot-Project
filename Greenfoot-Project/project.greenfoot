@@ -1,9 +1,13 @@
 #Greenfoot properties
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 #Tue Feb 10 16:41:08 EST 2015
 target4.type=ClassTarget
 =======
 #Tue Feb 10 15:52:04 EST 2015
+=======
+#Tue Feb 10 17:07:02 EST 2015
+>>>>>>> Stashed changes
 target4.type=ClassTarget
 <<<<<<<=Updated upstream
 >>>>>>> origin/master
@@ -48,6 +52,7 @@ target3.showInterface=false
 target6.name=Platform
 target1.showInterface=false
 target5.showInterface=false
+class.Diamond.superclass=greenfoot.Actor
 target6.width=80
 target5.naviview.expanded=true
 target6.height=50
@@ -94,6 +99,7 @@ mainWindow.x=210
 >>>>>>> origin/master
 target6.typeParameters=
 dependency1.from=Enemies
+class.NonvectorEntities.superclass=greenfoot.Actor
 target5.width=80
 target1.y=10
 target1.x=90
@@ -108,12 +114,16 @@ target1.editor.height=1098
 target2.name=Enemies
 target5.editor.height=1098
 target6.editor.y=-9
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 target6.editor.x=-9
 package.numDependencies=2
 simulation.speed=42
 =======
 simulation.speed=42
+=======
+simulation.speed=50
+>>>>>>> Stashed changes
 package.numDependencies=1
 target6.editor.x=-9
 >>>>>>> origin/master
@@ -121,6 +131,7 @@ target3.editor.height=1098
 target3.type=ClassTarget
 target4.width=80
 dependency2.from=VectorEntity
+class.Diamond.image=Diamond.png
 dependency2.type=UsesDependency
 target5.typeParameters=
 world.lastInstantiated=TestWorld
