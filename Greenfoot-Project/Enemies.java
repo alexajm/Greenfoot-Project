@@ -15,6 +15,7 @@ public class Enemies extends VectorEntity
      */
     public void act() 
     {
+        super.act();
         move();
     }   
     
