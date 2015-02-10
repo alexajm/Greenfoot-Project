@@ -22,7 +22,7 @@ public class TestMan extends VectorEntity
             move(-5);
         if (Greenfoot.isKeyDown("Right"))
             move(5);
-        if (Greenfoot.isKeyDown("Up") && getY()>=getWorld().getHeight()-40) {
+        if (Greenfoot.isKeyDown("Up") && getY()>=getWorld().getHeight()-20) {
             accelerate(3*pi/2, 15);
             System.out.println("Up detected");
         }
