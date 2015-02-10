@@ -1,6 +1,12 @@
 #Greenfoot properties
+<<<<<<< HEAD
 #Tue Feb 10 16:41:08 EST 2015
 target4.type=ClassTarget
+=======
+#Tue Feb 10 15:52:04 EST 2015
+target4.type=ClassTarget
+<<<<<<<=Updated upstream
+>>>>>>> origin/master
 target6.editor.width=1938
 target3.height=50
 target5.height=50
@@ -14,7 +20,12 @@ target1.height=50
 target5.type=ClassTarget
 class.TestMan.superclass=VectorEntity
 target3.typeParameters=
+<<<<<<< HEAD
 mainWindow.width=1938
+=======
+mainWindow.width=852
+>>>>>>>=Stashed changes
+>>>>>>> origin/master
 target2.width=80
 target3.editor.y=-9
 target3.editor.x=-9
@@ -42,6 +53,10 @@ target5.naviview.expanded=true
 target6.height=50
 package.numTargets=6
 target1.type=ClassTarget
+<<<<<<< HEAD
+=======
+class.TestMan.image=man01.png
+>>>>>>> origin/master
 target6.y=70
 target1.typeParameters=
 class.VectorEntity.superclass=greenfoot.Actor
@@ -51,9 +66,15 @@ class.Platform.image=bricks2.jpg
 target2.editor.y=-9
 class.Platform.superclass=greenfoot.Actor
 target2.height=50
+<<<<<<< HEAD
 target5.y=10
 target2.editor.x=-9
 target4.height=50
+=======
+target2.editor.x=-9
+target4.height=50
+target5.y=10
+>>>>>>> origin/master
 target5.x=200
 target1.name=VectorEntity
 target4.y=130
@@ -64,22 +85,38 @@ target3.x=100
 target2.type=ClassTarget
 target2.y=130
 target2.x=10
+<<<<<<< HEAD
 mainWindow.y=-9
 mainWindow.x=-9
+=======
+mainWindow.y=113
+mainWindow.x=210
+>>>>>>> origin/master
 target6.typeParameters=
 dependency1.from=Enemies
 target5.width=80
 target1.y=10
 target1.x=90
+<<<<<<< HEAD
 target2.editor.width=1938
 dependency1.type=UsesDependency
+=======
+dependency1.type=UsesDependency
+target2.editor.width=1938
+>>>>>>> origin/master
 target1.editor.height=1098
 target2.name=Enemies
 target5.editor.height=1098
 target6.editor.y=-9
+<<<<<<< HEAD
 target6.editor.x=-9
 package.numDependencies=2
 simulation.speed=42
+=======
+simulation.speed=42
+package.numDependencies=1
+target6.editor.x=-9
+>>>>>>> origin/master
 target3.editor.height=1098
 target3.type=ClassTarget
 target4.width=80
@@ -87,6 +124,7 @@ dependency2.from=VectorEntity
 dependency2.type=UsesDependency
 target5.typeParameters=
 world.lastInstantiated=TestWorld
+<<<<<<< HEAD
 mainWindow.height=1098
 target2.showInterface=false
 target3.name=TestWorld
@@ -97,3 +135,16 @@ target3.naviview.expanded=true
 project.charset=UTF-8
 target3.width=80
 target4.showInterface=false
+=======
+target2.showInterface=false
+mainWindow.height=520
+class.TestWorld.superclass=greenfoot.World
+target3.name=TestWorld
+target6.showInterface=false
+target1.editor.width=1938
+target3.naviview.expanded=true
+target3.width=80
+project.charset=UTF-8
+target4.showInterface=false
+=\=\=\=\=\=\=
+>>>>>>> origin/master
