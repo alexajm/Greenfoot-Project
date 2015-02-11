@@ -147,7 +147,7 @@ public class VectorEntity extends Actor
         }
         else
         {
-         
+            
         }
     }   
     public void collisionTest()
