@@ -19,7 +19,7 @@ public class Diamond extends TorqueEntity
         diamondMovement();
     }
     public Diamond() {
-        setRotation(15);
+        setRotation(17);
     }
     private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, 0, TestMan.class);

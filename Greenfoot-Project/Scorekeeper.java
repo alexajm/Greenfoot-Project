@@ -16,6 +16,7 @@ public class Scorekeeper extends NonvectorEntities
     private GreenfootImage number4 = new GreenfootImage("number4.png");
     private GreenfootImage number5 = new GreenfootImage("number5.png");
     GreenfootImage[] scores = {transparent, number1, number2, number3, number4, number5}; //An array of images that represent each score (0, 1, 2,...)
+    private boolean boundsException = false; //Keeps track of whether there's been an ArrayIndexOutOfBoundsException
     
     /**
      * Act - do whatever the Scorekeeper wants to do. This method is called whenever
@@ -32,6 +33,12 @@ public class Scorekeeper extends NonvectorEntities
         numDiamonds++;
     }
     public void setScore() { //Changes the score to reflect the number of diamonds collected so far
-        setImage(scores[numDiamonds]);
+        try {    
+            if (!boundsException)
+                setImage(scores[numDiamonds]);
+        } catch (ArrayIndexOutOfBoundsException e) {    //If the array limit is reached, the program catches the exception and 
+            System.out.println("Max diamonds reached"); //stops changing the counter.
+            boundsException = true;
+        }
     }
 }
