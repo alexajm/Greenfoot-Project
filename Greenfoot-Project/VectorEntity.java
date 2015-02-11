@@ -145,18 +145,17 @@ public class VectorEntity extends Actor
         {
             gravity();
         }
-        else
+        else 
         {
-            
-        }
-    }   
-    public void collisionTest()
-    {
-        if (canSee(Platform.class))
-        {
-            accelerate(3*pi/2, -1);
+            yComp = 0;
         }
     }
+    //public boolean hitBottomOfPlatform()
+    //{
+       //int actorHeight = getImage().getHeight();
+       //int vDistance = (int) (actorHeight / 2);
+       
+    //}
     public boolean canSee(Class clss) 
     {
         return getOneObjectAtOffset(0, 0, clss) != null;
