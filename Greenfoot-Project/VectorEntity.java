@@ -141,14 +141,15 @@ public class VectorEntity extends Actor
     }
     public void applyGravity()
     {
-    if (!onGround())
-    {
-         gravity();
-    }
-    else
-    {
+        if (!onGround())
+        {
+            gravity();
+        }
+        else
+        {
          
-    }
+        }
+    }   
     public void collisionTest()
     {
         if (canSee(Platform.class))
@@ -160,5 +161,4 @@ public class VectorEntity extends Actor
     {
         return getOneObjectAtOffset(0, 0, clss) != null;
     }
-}
-
+}   
