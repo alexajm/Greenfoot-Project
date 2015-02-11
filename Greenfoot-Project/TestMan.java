@@ -19,19 +19,14 @@ public class TestMan extends VectorEntity
     {
         super.act();
         checkKeys();
-        if (getY()>=getWorld().getHeight()-35) { //The player can only jump a maximum of maxJumps times before they touch the ground again
-            numJumps = 0;
-            System.out.println("Landing detected");
-        }
     }
     public void checkKeys() { //Facilitates user-controlled movement of the character
         if (Greenfoot.isKeyDown("Left")) //Moves left
             move(-5);
         if (Greenfoot.isKeyDown("Right")) //Moves right
             move(5);
-        if (Greenfoot.isKeyDown("Up") && (getY()>=getWorld().getHeight()-35 || numJumps<maxJumps)) { //Makes player jump
+        if (Greenfoot.isKeyDown("Up") && getY()>=getWorld().getHeight()-35) { //Makes player jump
             accelerate(pi/2, -15);
-            numJumps++;
             System.out.println("Up detected");
         }
         if (Greenfoot.isKeyDown("Down")) { //Stops unwanted sideways movement that has happens when there's an error in the past
