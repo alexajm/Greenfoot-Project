@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed Feb 11 20:54:57 EST 2015
+#Thu Feb 12 10:59:43 EST 2015
 target10.editor.width=1938
 target2.width=80
 target8.name=TestMan
@@ -76,8 +76,8 @@ target5.editor.x=40
 mainWindow.y=66
 mainWindow.x=142
 target5.showInterface=false
-target8.showInterface=false
 dependency5.from=TestWorld
+target8.showInterface=false
 target7.typeParameters=
 target2.name=Enemies
 target6.name=TorqueEntity
@@ -87,8 +87,8 @@ target6.editor.y=23
 target6.editor.x=0
 target5.editor.height=700
 target10.y=70
-target10.x=70
 target8.editor.height=712
+target10.x=70
 dependency2.to=Platform
 target10.naviview.expanded=true
 target9.y=70

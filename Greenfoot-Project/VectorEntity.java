@@ -53,10 +53,14 @@ public class VectorEntity extends Actor
     public void changeYComp(double yValue) { //Changes the vector's y-component
         yComp = yValue;
     }
+    public void multiplyXComp(double xValue) { //Multiplies the vector's x-component
+        xComp = xComp*xValue;
+    }
     public void addVector(double xValue, double yValue) { //Adds one vector to another
         xComp += xValue;
         yComp += yValue;
     }
+
     public void subtractVector(double xValue, double yValue) { //Subtracts one vector from another
         xComp -= xValue;
         yComp -= yValue;
@@ -115,7 +119,7 @@ public class VectorEntity extends Actor
     {
         int wallWidth = rightWall.getImage().getWidth();
         int dX = rightWall.getX() - (wallWidth + getImage().getWidth())/2;
-        setLocation(dX - 5, getY());
+        setLocation(dX - 50, getY());
     }
     public boolean lookForLeftWall()
     {
@@ -136,7 +140,7 @@ public class VectorEntity extends Actor
     {
         int wallWidth = leftWall.getImage().getWidth();
         int dX = leftWall.getX() - (wallWidth + getImage().getWidth())/2;
-        setLocation(dX+5, getY());
+        setLocation(dX+50, getY());
     }
     public void applyGravity()
     {

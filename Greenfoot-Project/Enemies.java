@@ -21,13 +21,19 @@ public class Enemies extends VectorEntity
     
     public void move() //Randomly moves the enemy left or right
     {
-        if(onGround())
+        int dx = -2;
+        addVector(-2, 0);
+        if(!onGround())
         {
-            move(-5);
-        }   
+            this.multiplyXComp(-1);
+        }
     }
-        
     
+    public void addVector(double xValue, double yValue)
+    {
+        super.addVector(xValue, yValue);
+        setLocation((int)this.getXComp(), (int)this.getYComp());
+    }
 }
     
   
