@@ -71,13 +71,6 @@ public class VectorEntity extends Actor
     public String norm() { //Converts unit vector to string
         return "(" + getUnitXComp() + ", " + getUnitYComp() + ")";
     }
-    public void gravity() { //Applies gravity to VectorEntities that are not on the ground
-        if (getY()>=getWorld().getHeight()-(getImage().getHeight()/2)) {
-            changeYComp(0.0);
-        } else {
-            accelerate((3*pi)/2, -1);
-        }
-    }
     public void move() { //Applies movement based on the direction and magnitude of an object's force vector
         double x = getX() + getXComp();
         double y = getY() + getYComp();
@@ -98,6 +91,15 @@ public class VectorEntity extends Actor
         else
         {
             return true;
+        }
+    }
+    public void gravity() { //Applies gravity when object is not on either a platform or the ground
+        double height = getImage().getHeight()/2;
+        Actor platform = getOneObjectAtOffset(0, (int)height, Platform.class);
+        if (getY()>=getWorld().getHeight()-height || platform!=null) { //If the object is at the bottom of the screen or there's a platform below its feet,
+            changeYComp(0);                                            //it will stop falling under the influence of gravity
+        } else {
+            accelerate((3*pi)/2, -1);
         }
     }
     public boolean lookForRightWall()

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Greenfoot project file
 =\=\=\=\=\=\=
 <<<<<<<=Updated\ upstream
@@ -11,10 +12,27 @@ class.NonvectorEntities.superclass=greenfoot.Actor
 class.Platform.image=bricks2.jpg
 class.Platform.superclass=greenfoot.Actor
 class.Player.superclass=VectorEntity
+=======
+#Greenfoot properties
+#Thu Feb 12 11:04:59 EST 2015
+target10.editor.width=1938
+target2.width=80
+target8.name=TestMan
+target5.naviview.expanded=true
+class.Diamond2.superclass=greenfoot.Actor
+target1.type=ClassTarget
+target7.showInterface=false
+mainWindow.height=1098
+target2.editor.y=-9
+target6.typeParameters=
+target2.editor.x=-9
+target1.height=50
+>>>>>>> origin/master
 class.Scorekeeper.superclass=NonvectorEntities
 class.TestMan.image=man01.png
 class.TestMan.superclass=VectorEntity
 class.TestWorld.superclass=greenfoot.World
+<<<<<<< HEAD
 class.TorqueEntity.superclass=VectorEntity
 class.VectorEntity.superclass=greenfoot.Actor
 dependency1.from=Enemies
@@ -26,6 +44,23 @@ dependency2.type=UsesDependency
 dependency3.from=Diamond
 dependency3.to=TestMan
 dependency3.type=UsesDependency
+=======
+target1.showInterface=false
+target4.y=130
+target4.x=190
+target4.showInterface=false
+target9.type=ClassTarget
+target9.editor.width=1938
+target2.y=130
+target2.x=10
+target10.type=ClassTarget
+target8.height=50
+target3.naviview.expanded=true
+class.Platform.image=bricks2.jpg
+class.Diamond2.image=Diamond.png
+target10.typeParameters=
+target1.editor.height=1098
+>>>>>>> origin/master
 dependency4.from=Diamond
 dependency4.to=Scorekeeper
 dependency4.type=UsesDependency
@@ -120,12 +155,20 @@ target4.x=100
 target4.y=130
 target5.editor.height=700
 target5.editor.width=900
+<<<<<<< HEAD
+=======
+class.Force.superclass=
+target2.showInterface=false
+dependency1.from=Enemies
+target5.editor.y=35
+>>>>>>> origin/master
 target5.editor.x=40
 target5.editor.y=35
 target5.height=50
 target5.name=Player
 target5.naviview.expanded=true
 target5.showInterface=false
+<<<<<<< HEAD
 target5.type=ClassTarget
 target5.typeParameters=
 target5.width=80
@@ -135,6 +178,26 @@ target6.editor.height=700
 target6.editor.width=900
 target6.editor.x=40
 target6.editor.y=35
+=======
+dependency5.from=TestWorld
+target8.showInterface=false
+target7.typeParameters=
+target2.name=Enemies
+target6.name=TorqueEntity
+target6.naviview.expanded=true
+target9.height=50
+target6.editor.y=23
+target6.editor.x=0
+target5.editor.height=700
+target10.y=70
+target8.editor.height=712
+target10.x=70
+dependency2.to=Platform
+target10.naviview.expanded=true
+target9.y=70
+target9.x=70
+target3.type=ClassTarget
+>>>>>>> origin/master
 target6.height=50
 target6.name=NonvectorEntities
 target6.naviview.expanded=true
