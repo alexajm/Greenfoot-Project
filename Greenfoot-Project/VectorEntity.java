@@ -95,7 +95,6 @@ public class VectorEntity extends Actor
         {
             return true;
         }
-       
     }
     public boolean lookForRightWall()
     {
