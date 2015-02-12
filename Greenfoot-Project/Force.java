@@ -13,12 +13,12 @@ public class Force
     private double zComp; //Torque vector
     private double pi = Math.PI;
     
-    private Force() { //Default constructor
+    public Force() { //Default constructor
         xComp = 0;
         yComp = 0;
         zComp = 0;
     }
-    private Force(double x, double y, double z) { //Constructor taking values for the x-component, y-component, and torque
+    public Force(double x, double y, double z) { //Constructor taking values for the x-component, y-component, and torque
         xComp = x;
         yComp = y;
         zComp = z;
@@ -42,9 +42,9 @@ public class Force
     public double getDirectionOfTorque() { //The direction of the torque
         int direction = 0; //Means the object is not rotating
         if (getZComp()>0)
-            direction = 1; //Counterclockwise
-        if (getZComp()<0)
             direction = -1; //Clockwise
+        if (getZComp()<0)
+            direction = 1; //Counterclockwise
         return direction;
     }
     public void setXComp(double xValue) { //Changes the force's x-component
@@ -60,7 +60,7 @@ public class Force
         xComp += xValue;
         yComp += yValue;
     }
-    public void addVector(int direction, double magnitude) { //Adds one vector to another, direction is in degrees (0-359)
+    public void addVectorInDirection(int direction, double magnitude) { //Adds one vector to another, direction is in degrees (0-359)
         addVector(magnitude*Math.cos(Math.toRadians(direction)), magnitude*Math.sin(Math.toRadians(direction)));
     }
     public void addVector(Force force) { //Adds one vector to another
@@ -93,10 +93,12 @@ public class Force
         actor.setRotation((int)z);
     }
     public void gravity(Actor actor) { //Applies gravity to actors
-        if (actor.getY()>=actor.getWorld().getHeight()-(actor.getImage().getHeight()/2)) {
+        double height = actor.getImage().getHeight()/2;
+        //Actor platform = actor.getOneObjectAtOffset(0, (int)height, Platform.class);
+        if (actor.getY()>=actor.getWorld().getHeight()-height) {
             setYComp(0);
         } else {
-            addVector((3*pi)/2, -1);
+            addVectorInDirection(270, -1);
         }
     }
 }
