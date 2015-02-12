@@ -92,10 +92,10 @@ public class Force
         actor.setLocation((int)x, (int)y);
         actor.setRotation((int)z);
     }
-    public void gravity(Actor actor) { //Applies gravity to actors
+    public void gravity(BetterActor actor) { //Applies gravity to actors
         double height = actor.getImage().getHeight()/2;
-        //Actor platform = actor.getOneObjectAtOffset(0, (int)height, Platform.class);
-        if (actor.getY()>=actor.getWorld().getHeight()-height) {
+        Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class);
+        if (actor.getY()>=actor.getWorld().getHeight()-height || platform!=null) {
             setYComp(0);
         } else {
             addVectorInDirection(270, -1);
