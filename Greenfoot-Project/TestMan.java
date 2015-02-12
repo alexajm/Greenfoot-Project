@@ -22,7 +22,7 @@ public class TestMan extends VectorEntity
             move(-5);
         if (Greenfoot.isKeyDown("Right")) //Moves right
             move(5);
-        if (Greenfoot.isKeyDown("Up") && getY()>=getWorld().getHeight()-35) { //Makes player jump
+        if (Greenfoot.isKeyDown("Up") && getY()>=getWorld().getHeight()-(getHeight()/2)) { //Makes player jump
             accelerate(pi/2, -15);
             System.out.println("Up detected");
         }
@@ -30,5 +30,8 @@ public class TestMan extends VectorEntity
             changeXComp(0);
             System.out.println("Down detected");
         }
+    }
+    public double getHeight() {
+        return getImage().getHeight();
     }
 }

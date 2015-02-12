@@ -1,3 +1,5 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
 /**
  * Write a description of class Force here.
  * 
@@ -82,5 +84,19 @@ public class Force
     }
     public String toString() { //Converts vector to string
         return "(" + xComp + ", " + yComp + ", " + zComp + ")";
+    }
+    public void move(Actor actor) { //Applies movement to actors based on the x-component, y-component, and torque
+        double x = actor.getX() + xComp;
+        double y = actor.getY() + yComp;
+        double z = actor.getRotation() + zComp;
+        actor.setLocation((int)x, (int)y);
+        actor.setRotation((int)z);
+    }
+    public void gravity(Actor actor) { //Applies gravity to actors
+        if (actor.getY()>=actor.getWorld().getHeight()-(actor.getImage().getHeight()/2)) {
+            setYComp(0);
+        } else {
+            addVector((3*pi)/2, -1);
+        }
     }
 }
