@@ -18,11 +18,13 @@ public class TestMan extends VectorEntity
         checkKeys();
     }
     public void checkKeys() { //Facilitates user-controlled movement of the character
+        double height = getImage().getHeight()/2;
+        Actor platform = getOneObjectAtOffset(0, (int)height, Platform.class);
         if (Greenfoot.isKeyDown("Left")) //Moves left
             move(-5);
         if (Greenfoot.isKeyDown("Right")) //Moves right
             move(5);
-        if (Greenfoot.isKeyDown("Up") && getY()>=getWorld().getHeight()-(getHeight()/2)) { //Makes player jump
+        if (Greenfoot.isKeyDown("Up") && (getY()>=getWorld().getHeight()-height || platform!=null)) { //Makes player jump
             accelerate(pi/2, -15);
             System.out.println("Up detected");
         }
