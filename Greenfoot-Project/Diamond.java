@@ -1,20 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Diamond here.
+ * Write a description of class Diamond2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Diamond extends TorqueEntity
+public class Diamond extends BetterActor
 {
+    private Force force = new Force();
+    
     /**
      * Act - do whatever the Diamond wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        super.act();
+        force.move(this);
         checkForPlayer();
         diamondMovement();
     }
@@ -28,12 +30,12 @@ public class Diamond extends TorqueEntity
             getWorld().removeObject(this);
         }
     }
-    public void diamondMovement() {
+    private void diamondMovement() {
         if (getRotation()>0 && getRotation()<90) {
-            addTorque(0.15);
+            force.subtractTorque(0.15);
         }
         if (getRotation()>270 && getRotation()<359) {
-            subtractTorque(0.15);
+            force.addTorque(0.15);
         }
     }
 }
