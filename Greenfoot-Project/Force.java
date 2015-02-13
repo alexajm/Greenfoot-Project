@@ -85,20 +85,26 @@ public class Force
     public String toString() { //Converts vector to string
         return "(" + xComp + ", " + yComp + ", " + zComp + ")";
     }
-    public void move(Actor actor) { //Applies movement to actors based on the x-component, y-component, and torque
+    public void move(BetterActor actor) { //Applies movement to actors based on the x-component, y-component, and torque
         double x = actor.getX() + xComp;
         double y = actor.getY() + yComp;
         double z = actor.getRotation() + zComp;
-        actor.setLocation((int)x, (int)y);
+        double height = actor.getImage().getHeight()/2;
+        actor.setLocation((int)x, (int)y); //The new position after movement is set
         actor.setRotation((int)z);
+        Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height-3, Platform.class); //Searches for platforms the actor overlaps with after movement
+        while (actor.getY()>=actor.getWorld().getHeight()-(height-3) || platform!=null) { //Runs if there is overlap with a platform or the ground
+            actor.setLocation(actor.getX(), actor.getY()-1); //Actor is moved up one cell
+            platform = actor.betterGetOneObjectAtOffset(0, (int)height-3, Platform.class); //Searches for more overlapping platforms and starts again
+        }   
     }
     public void gravity(BetterActor actor) { //Applies gravity to actors
         double height = actor.getImage().getHeight()/2;
         Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class);
-        if (actor.getY()>=actor.getWorld().getHeight()-height || platform!=null) {
+        if (actor.getY()>=actor.getWorld().getHeight()-height || platform!=null) { //If the actor collides with a platform or the ground, it stops falling
             setYComp(0);
         } else {
-            addVectorInDirection(270, -1);
+            addVectorInDirection(270, -1); //Otherwise velocity increases under the influence of gravity
         }
     }
 }
