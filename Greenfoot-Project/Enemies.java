@@ -9,6 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Enemies extends VectorEntity
 {
     private int randomNum = Greenfoot.getRandomNumber(2);
+    private int actorHeight = getImage().getHeight();
+    private int actorWidth = getImage().getWidth();
+    private int checkX = (int) actorWidth/2;
+    private int checkY = (int) actorHeight/2;
+    private int speed = 1; 
     /**
      * Act - do whatever the Enemies wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -19,13 +24,17 @@ public class Enemies extends VectorEntity
         move();
     }   
     
-    public void move() //Randomly moves the enemy left or right
+    public void move() //Moves enemy back and forth
     {
-        int dx = -2;
-        addVector(-2, 0);
-        if(!onGround())
+        Actor ground = getOneObjectAtOffset(checkX, checkY, Platform.class);
+        if(ground == null)
         {
-            this.multiplyXComp(-1);
+            speed *= -1; // Reverses direction
+            checkX*= -1; // Looks for a negative number
+        }
+        else
+        {
+            move(speed);
         }
     }
     
