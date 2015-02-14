@@ -6,17 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player extends VectorEntity
+public class Player extends BetterActor
 {
-    
     Force force = new Force();
     final double pi = Math.PI;
+    
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-        super.act();
+    public void act() {
     }
 }

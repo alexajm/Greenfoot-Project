@@ -17,11 +17,11 @@ public class Exit extends Platform
         checkForPlayer();
     }    
     private void checkForPlayer() { //Checks to see if touching the player
-        Actor player = (Actor) getOneObjectAtOffset(0, -getImage().getHeight()/2, TestMan.class);
+        Actor player = (Actor) getOneObjectAtOffset(0, -getImage().getHeight()/2, TestMan.class); //Looks for players standing on top of the block
         if (player!=null && Scorekeeper.getScore()>=3) {
             System.out.println("Exit active");
             getWorld().showText("You Won!", getWorld().getWidth()/2, getWorld().getHeight()/2);
-            Greenfoot.stop();
+            Greenfoot.stop(); //With a score of three or more, the game will end when the player stands on the block
         }
     }
 }

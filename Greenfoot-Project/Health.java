@@ -57,7 +57,7 @@ public class Health extends Player
     }
     public void decrementHealth()
     {
-        if (canSee(Enemies.class))
+        if (force.canSee(Enemies.class, this))
         {
             health-=0.5;
         }

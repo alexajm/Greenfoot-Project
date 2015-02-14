@@ -15,7 +15,15 @@ public class TestWorld extends World
     public TestWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(1000, 600, 1); 
         addObject(new Scorekeeper(), 35, 35); //Adds the scorekeeper to the top left corner
+        addObject(new Platform(), 281, 518);
+        addObject(new Platform(), 465, 474);
+        addObject(new Platform(), 658, 426);
+        addObject(new Exit(), 872, 373);
+        addObject(new Diamond(), 287, 450);
+        addObject(new Diamond(), 470, 405);
+        addObject(new Diamond(), 663, 359);
+        addObject(new TestMan(), 57, 574);
     }
 }

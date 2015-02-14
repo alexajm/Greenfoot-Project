@@ -130,4 +130,7 @@ public class Force
             setYComp(0); //Object also loses upward momentum as a result of these collisions
         }
     }
+    public boolean canSee(Class clss, BetterActor actor) {
+        return actor.betterGetOneObjectAtOffset(0, 0, clss) != null;
+    }
 }
