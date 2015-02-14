@@ -41,4 +41,7 @@ public class Scorekeeper extends Actor
             boundsException = true;
         }
     }
+    public static int getScore() {
+        return numDiamonds;
+    }
 }

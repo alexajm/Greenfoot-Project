@@ -48,4 +48,7 @@ public class TestMan extends BetterActor
     public double getHeight() {
         return getImage().getHeight();
     }
+    public int getScore() {
+        return Scorekeeper.getScore();
+    }
 }
