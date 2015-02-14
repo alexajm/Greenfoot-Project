@@ -20,6 +20,7 @@ public class TestMan extends BetterActor
         force.move(this);
         force.gravity(this);
         force.lookForWall(this);
+        force.lookForCeiling(this);
         checkKeys();
     }
     public TestMan() {

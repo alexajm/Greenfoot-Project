@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BetterActor extends Actor
 {
-    int rightExcess = 0;
-    int leftExcess = 0;
-    int botExcess = 0;
-    int topExcess = 0;
+    int rightExcess = 0; //Images may have excess space along their sides that is transparent, but affects
+    int leftExcess = 0;  //collision detection. These values, which can be changed for individual objects
+    int botExcess = 0;   //and the images associated with them, represent the size of that space on all sides
+    int topExcess = 0;   //of the object (in pixels) and allow the collision detection to ignore it.
     
     /**
      * Act - do whatever the BetterActor wants to do. This method is called whenever

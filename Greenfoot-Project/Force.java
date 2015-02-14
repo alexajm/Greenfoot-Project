@@ -96,7 +96,7 @@ public class Force
         while (actor.getY()>=actor.getWorld().getHeight()-height || platform!=null) { //Runs if there is overlap with a platform or the ground
             actor.setLocation(actor.getX(), actor.getY()-1); //Actor is moved up one cell
             platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class); //Searches for more overlapping platforms and starts again
-        }   
+        }
     }
     public void gravity(BetterActor actor) { //Applies gravity to actors
         double height = actor.getImage().getHeight()/2;
@@ -119,6 +119,15 @@ public class Force
         while (platformLeft!=null) { //While there's a platform to its left, the object keeps being pushed right
             actor.setLocation(actor.getX()+1, actor.getY());
             platformLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
+        }
+    }
+    public void lookForCeiling(BetterActor actor) { //Looks for ceilings
+        double height = actor.getImage().getHeight()/2 - actor.topExcess - 1;
+        Actor platform = actor.betterGetOneObjectAtOffset(0, -(int)height, Platform.class);
+        while (actor.getY()<=height || platform!=null) { //While there's a platform or the top of the world above it, the object moves downwards
+            actor.setLocation(actor.getX(), actor.getY()+1); //Actor is moved down one cell
+            platform = actor.betterGetOneObjectAtOffset(0, -(int)height, Platform.class);
+            setYComp(0); //Object also loses upward momentum as a result of these collisions
         }
     }
 }
