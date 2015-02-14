@@ -19,7 +19,14 @@ public class TestMan extends BetterActor
     {
         force.move(this);
         force.gravity(this);
+        force.lookForWall(this);
         checkKeys();
+    }
+    public TestMan() {
+        rightExcess = 16;
+        leftExcess = 15;
+        botExcess = 2;
+        topExcess = 1;
     }
     public void checkKeys() { //Facilitates user-controlled movement of the character
         double height = getHeight()/2;

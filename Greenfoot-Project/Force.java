@@ -89,13 +89,13 @@ public class Force
         double x = actor.getX() + xComp;
         double y = actor.getY() + yComp;
         double z = actor.getRotation() + zComp;
-        double height = actor.getImage().getHeight()/2;
+        double height = actor.getImage().getHeight()/2 - actor.botExcess - 1;
         actor.setLocation((int)x, (int)y); //The new position after movement is set
         actor.setRotation((int)z);
-        Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height-3, Platform.class); //Searches for platforms the actor overlaps with after movement
-        while (actor.getY()>=actor.getWorld().getHeight()-(height-3) || platform!=null) { //Runs if there is overlap with a platform or the ground
+        Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class); //Searches for platforms the actor overlaps with after movement
+        while (actor.getY()>=actor.getWorld().getHeight()-height || platform!=null) { //Runs if there is overlap with a platform or the ground
             actor.setLocation(actor.getX(), actor.getY()-1); //Actor is moved up one cell
-            platform = actor.betterGetOneObjectAtOffset(0, (int)height-3, Platform.class); //Searches for more overlapping platforms and starts again
+            platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class); //Searches for more overlapping platforms and starts again
         }   
     }
     public void gravity(BetterActor actor) { //Applies gravity to actors
@@ -105,6 +105,20 @@ public class Force
             setYComp(0);
         } else {
             addVectorInDirection(270, -1); //Otherwise velocity increases under the influence of gravity
+        }
+    }
+    public void lookForWall(BetterActor actor) { //Looks for walls the object might be colliding with and prevents it from moving through them
+        double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1; //Actual width of the object taking into account whitespace in its image
+        double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1; //Actual width on the object's left side
+        Actor platformRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class); //Searches for platforms to the right
+        Actor platformLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class); //Searches for platforms to the left
+        while (platformRight!=null) { //While there's a platform to its right, the object keeps being pushed left
+            actor.setLocation(actor.getX()-1, actor.getY());
+            platformRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
+        }
+        while (platformLeft!=null) { //While there's a platform to its left, the object keeps being pushed right
+            actor.setLocation(actor.getX()+1, actor.getY());
+            platformLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
         }
     }
 }
