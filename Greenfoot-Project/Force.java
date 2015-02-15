@@ -130,6 +130,32 @@ public class Force
             setYComp(0); //Object also loses upward momentum as a result of these collisions
         }
     }
+    public boolean isTouchingCeiling(BetterActor actor) {
+        boolean result = true;
+        double height = actor.getImage().getHeight()/2 - actor.topExcess - 1;
+        Actor platform = actor.betterGetOneObjectAtOffset(0, -(int)height, Platform.class);
+        if (actor.getY()<=height || platform!=null)
+            result = false;
+        return result;
+    }
+    public boolean isTouchingWall(BetterActor actor) {
+        boolean result = true;
+        double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1;
+        double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1;
+        Actor platformRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
+        Actor platformLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
+        if (platformRight==null && platformLeft==null && !actor.isAtEdge())
+            result = false;
+        return result;
+    }
+    public boolean isTouchingGround(BetterActor actor) {
+        boolean result = true;
+        double height = actor.getImage().getHeight()/2 - actor.botExcess - 1;
+        Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class);
+        if (actor.getY()>=actor.getWorld().getHeight()-height || platform!=null)
+            result = false;
+        return result;
+    }
     public boolean canSee(Class clss, BetterActor actor) {
         return actor.betterGetOneObjectAtOffset(0, 0, clss) != null;
     }
