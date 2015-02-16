@@ -110,15 +110,21 @@ public class Force
     public void lookForWall(BetterActor actor) { //Looks for walls the object might be colliding with and prevents it from moving through them
         double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1; //Actual width of the object taking into account whitespace in its image
         double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1; //Actual width on the object's left side
-        Actor platformRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class); //Searches for platforms to the right
-        Actor platformLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class); //Searches for platforms to the left
-        while (platformRight!=null) { //While there's a platform to its right, the object keeps being pushed left
+        double heightBot = actor.getImage().getHeight()/2 - actor.botExcess - 1;
+        double heightTop = actor.getImage().getHeight()/2 - actor.topExcess - 1;
+        //Actor platformTopRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightTop, Platform.class);
+        //Actor platformTopLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightTop, Platform.class);
+        Actor platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
+        Actor platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
+        while (platformBotRight!=null) { //While there's a platform to its right, the object keeps being pushed left
             actor.setLocation(actor.getX()-1, actor.getY());
-            platformRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
+            //platformTopRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightTop, Platform.class);
+            platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightBot, Platform.class);
         }
-        while (platformLeft!=null) { //While there's a platform to its left, the object keeps being pushed right
+        while (platformBotLeft!=null) { //While there's a platform to its left, the object keeps being pushed right
             actor.setLocation(actor.getX()+1, actor.getY());
-            platformLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
+            //platformTopLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightTop, Platform.class);
+            platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightBot, Platform.class);
         }
     }
     public void lookForCeiling(BetterActor actor) { //Looks for ceilings
@@ -139,14 +145,18 @@ public class Force
         return result;
     }
     public boolean isTouchingWall(BetterActor actor) {
-        boolean result = true;
-        double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1;
-        double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1;
-        Actor platformRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
-        Actor platformLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
-        if (platformRight==null && platformLeft==null && !actor.isAtEdge())
-            result = false;
-        return result;
+         boolean result = true;
+         double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1;
+         double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1;
+         double heightBot = actor.getImage().getHeight()/4 - actor.botExcess - 1;
+         double heightTop = actor.getImage().getHeight()/2 - actor.topExcess - 1;
+         Actor platformTopRight = actor.betterGetOneObjectAtOffset((int)widthRight, -(int)heightTop, Platform.class);
+         Actor platformTopLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, -(int)heightTop, Platform.class);
+         Actor platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightBot, Platform.class);
+         Actor platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightBot, Platform.class);
+         if (platformBotRight==null && platformBotLeft==null && platformTopRight==null && platformTopLeft==null && !actor.isAtEdge())
+             result = false;
+         return result;
     }
     public boolean isTouchingGround(BetterActor actor) {
         boolean result = true;

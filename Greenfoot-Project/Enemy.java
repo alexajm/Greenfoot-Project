@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Enemy extends BetterActor
 {
     Force force = new Force();
-    private int speed = 1;
+    private int speed = 2;
     
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
@@ -19,6 +19,8 @@ public class Enemy extends BetterActor
     {
         force.move(this);
         force.gravity(this);
+        force.lookForWall(this);
+        force.lookForCeiling(this);
         enemyMovement();
     }
     public Enemy() {
@@ -29,7 +31,7 @@ public class Enemy extends BetterActor
     }
     public void enemyMovement() {
         move(speed);
-        if (!force.isTouchingGround(this) || force.isTouchingWall(this)) {
+        if (force.isTouchingWall(this)) {
             move(-speed);
             speed*=-1;
         }
