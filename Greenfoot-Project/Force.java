@@ -145,6 +145,22 @@ public class Force
             result = false;
         return result;
     }
+    public boolean isTouchingCeiling2(BetterActor actor) {
+        boolean result = false;
+        double height = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1; //This represents a quarter of the image's actual height
+        ArrayList ceilingPoints = new ArrayList(); //This is the array in which all points involved with detection of ceilings will be kept
+        for (int i=0; i<actor.detectPoints.size(); i++) { //The loop checks through all the points defined in the object's detectPoints ArrayList
+            if (actor.detectPoints.get(i).getY()<=(-height)) { //If a point is more than 3/4 of the way up the image, it will be used to detect ceilings
+                ceilingPoints.add(actor.betterGetOneObjectAtOffset(actor.detectPoints.get(i).getX(), actor.detectPoints.get(i).getY(), Platform.class));
+            }
+        }
+        for (int i=0; i<ceilingPoints.size(); i++) { //Another loop then checks all of the points singled out for ceiling detection
+            if (ceilingPoints.get(i)!=null) { //If there is a platform at any of those points, the methods returns true
+                result = true;
+            }
+        }
+        return result;
+    }
     public boolean isTouchingWall(BetterActor actor) {
         boolean result = true;
         double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1;
@@ -161,10 +177,10 @@ public class Force
     }
     public boolean isTouchingWall2(BetterActor actor) {
         boolean result = false;
-        double wallHeight = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1;
+        double height = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1;
         ArrayList wallPoints = new ArrayList();
-        for (int i=0; i<actor.detectPoints.size(); i++) {
-            if (actor.detectPoints.get(i).getY()<=wallHeight) {
+        for (int i=0; i<actor.detectPoints.size(); i++) {   //Implementation is similar to isTouchingCeiling2(), but looks for
+            if (actor.detectPoints.get(i).getY()<=height) { //points more than 1/4 of the way up the image
                 wallPoints.add(actor.betterGetOneObjectAtOffset(actor.detectPoints.get(i).getX(), actor.detectPoints.get(i).getY(), Platform.class));
             }
         }
@@ -181,6 +197,22 @@ public class Force
         Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class);
         if (actor.getY()>=actor.getWorld().getHeight()-height || platform!=null)
             result = false;
+        return result;
+    }
+    public boolean isTouchingGround2(BetterActor actor) {
+        boolean result = false;
+        double height = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1;
+        ArrayList groundPoints = new ArrayList();
+        for (int i=0; i<actor.detectPoints.size(); i++) {   //Implementation is similar to isTouchingCeiling2(), but looks for
+            if (actor.detectPoints.get(i).getY()>height) {  //points less than 1/4 of the way up the image
+                groundPoints.add(actor.betterGetOneObjectAtOffset(actor.detectPoints.get(i).getX(), actor.detectPoints.get(i).getY(), Platform.class));
+            }
+        }
+        for (int i=0; i<groundPoints.size(); i++) {
+            if (groundPoints.get(i)!=null) {
+                result = true;
+            }
+        }
         return result;
     }
     public boolean canSee(Class clss, BetterActor actor) {
