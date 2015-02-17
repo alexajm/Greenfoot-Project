@@ -18,9 +18,10 @@ public class TestMan extends BetterActor
     public void act() 
     {
         force.move(this);
-        force.gravity(this);
         force.lookForWall(this);
         force.lookForCeiling(this);
+        force.gravity(this);
+        //force.move2(this);
         checkKeys();
     }
     public TestMan() {
@@ -28,7 +29,7 @@ public class TestMan extends BetterActor
         leftExcess = 15;
         botExcess = 2;
         topExcess = 1;
-        detectPoints.add(new Coordinate(0, getImage().getHeight()-topExcess-1));
+        detectPoints.add(new Coordinate(0, -((getImage().getHeight()-topExcess-botExcess)/2)-1));
         detectPoints.add(new Coordinate(-15, -11));
         detectPoints.add(new Coordinate(-15, 8));
         detectPoints.add(new Coordinate(-6, 27));
@@ -37,7 +38,7 @@ public class TestMan extends BetterActor
         detectPoints.add(new Coordinate(6, 27));
     }
     public void checkKeys() { //Facilitates user-controlled movement of the character
-        double height = getHeight()/2;
+        double height = getImage().getHeight()/2;
         Actor platform = getOneObjectAtOffset(0, (int)height, Platform.class);
         if (Greenfoot.isKeyDown("Left")) //Moves left
             move(-5);
