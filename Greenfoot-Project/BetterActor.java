@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class BetterActor here.
@@ -12,6 +13,7 @@ public class BetterActor extends Actor
     int leftExcess = 0;  //collision detection. These values, which can be changed for individual objects
     int botExcess = 0;   //and the images associated with them, represent the size of that space on all sides
     int topExcess = 0;   //of the object (in pixels) and allow the collision detection to ignore it.
+    ArrayList detectPoints = new ArrayList();
     
     /**
      * Act - do whatever the BetterActor wants to do. This method is called whenever

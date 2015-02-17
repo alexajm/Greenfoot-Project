@@ -28,6 +28,8 @@ public class TestMan extends BetterActor
         leftExcess = 15;
         botExcess = 2;
         topExcess = 1;
+        detectPoints.add(new Coordinate(0, getImage().getHeight()-topExcess-1));
+        //detectPoints.add(
     }
     public void checkKeys() { //Facilitates user-controlled movement of the character
         double height = getHeight()/2;
