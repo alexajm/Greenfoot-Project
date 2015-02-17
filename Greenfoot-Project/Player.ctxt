@@ -1,5 +1,13 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Player\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=1
+comment0.text=\n\ Act\ -\ do\ whatever\ the\ TestMan\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment1.params=
+comment1.target=Player()
+comment2.params=
+comment2.target=void\ checkKeys()
+comment3.params=
+comment3.target=double\ getHeight()
+comment4.params=
+comment4.target=int\ getScore()
+numComments=5
