@@ -14,8 +14,8 @@ public class Coordinate
         y = 0;
     }
     public Coordinate(int x, int y) {
-        x = x;
-        y = y;
+        this.x = x;
+        this.y = y;
     }
     public String toString() {
         return "(" + x + ", " + y + ")";

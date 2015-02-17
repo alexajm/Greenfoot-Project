@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Force here.
@@ -145,18 +146,34 @@ public class Force
         return result;
     }
     public boolean isTouchingWall(BetterActor actor) {
-         boolean result = true;
-         double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1;
-         double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1;
-         double heightBot = actor.getImage().getHeight()/4 - actor.botExcess - 1;
-         double heightTop = actor.getImage().getHeight()/2 - actor.topExcess - 1;
-         Actor platformTopRight = actor.betterGetOneObjectAtOffset((int)widthRight, -(int)heightTop, Platform.class);
-         Actor platformTopLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, -(int)heightTop, Platform.class);
-         Actor platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightBot, Platform.class);
-         Actor platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightBot, Platform.class);
-         if (platformBotRight==null && platformBotLeft==null && platformTopRight==null && platformTopLeft==null && !actor.isAtEdge())
-             result = false;
-         return result;
+        boolean result = true;
+        double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1;
+        double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1;
+        double heightBot = actor.getImage().getHeight()/4 - actor.botExcess - 1;
+        double heightTop = actor.getImage().getHeight()/2 - actor.topExcess - 1;
+        Actor platformTopRight = actor.betterGetOneObjectAtOffset((int)widthRight, -(int)heightTop, Platform.class);
+        Actor platformTopLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, -(int)heightTop, Platform.class);
+        Actor platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightBot, Platform.class);
+        Actor platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightBot, Platform.class);
+        if (platformBotRight==null && platformBotLeft==null && platformTopRight==null && platformTopLeft==null && !actor.isAtEdge())
+            result = false;
+        return result;
+    }
+    public boolean isTouchingWall2(BetterActor actor) {
+        boolean result = false;
+        double wallHeight = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1;
+        ArrayList wallPoints = new ArrayList();
+        for (int i=0; i<actor.detectPoints.size(); i++) {
+            if (actor.detectPoints.get(i).getY()<=wallHeight) {
+                wallPoints.add(actor.betterGetOneObjectAtOffset(actor.detectPoints.get(i).getX(), actor.detectPoints.get(i).getY(), Platform.class));
+            }
+        }
+        for (int i=0; i<wallPoints.size(); i++) {
+            if (wallPoints.get(i)!=null) {
+                result = true;
+            }
+        }
+        return result;
     }
     public boolean isTouchingGround(BetterActor actor) {
         boolean result = true;
