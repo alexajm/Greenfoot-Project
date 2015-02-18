@@ -10,6 +10,8 @@ public class TestMan extends BetterActor
 {
     Force force = new Force();
     final double pi = Math.PI;
+    int ammo = 3;
+    int reloadTime = 10;
     
     /**
      * Act - do whatever the TestMan wants to do. This method is called whenever
@@ -23,6 +25,7 @@ public class TestMan extends BetterActor
         force.gravity(this);
         //force.move2(this);
         checkKeys();
+        reloadTime++;
     }
     public TestMan() {
         rightExcess = 16;
@@ -39,18 +42,30 @@ public class TestMan extends BetterActor
     }
     public void checkKeys() { //Facilitates user-controlled movement of the character
         double height = getImage().getHeight()/2;
+        int widthRight = getImage().getWidth()/2 - rightExcess;
+        int widthLeft = getImage().getWidth()/2 - leftExcess;
         Actor platform = getOneObjectAtOffset(0, (int)height, Platform.class);
-        if (Greenfoot.isKeyDown("Left")) //Moves left
+        if (Greenfoot.isKeyDown("A")) //Moves left
             move(-5);
-        if (Greenfoot.isKeyDown("Right")) //Moves right
+        if (Greenfoot.isKeyDown("D")) //Moves right
             move(5);
-        if (Greenfoot.isKeyDown("Up") && (getY()>=getWorld().getHeight()-height || platform!=null)) { //Makes player jump
+        if (Greenfoot.isKeyDown("W") && (getY()>=getWorld().getHeight()-height || platform!=null)) { //Makes player jump
             force.addVectorInDirection(90, -15.0);
             System.out.println("Up detected");
         }
-        if (Greenfoot.isKeyDown("Down")) { //Stops unwanted sideways movement that has happens when there's an error in the past
+        if (Greenfoot.isKeyDown("S")) { //Stops unwanted sideways movement that has happens when there's an error in the past
             force.setXComp(0);
             System.out.println("Down detected");
+        }
+        if (Greenfoot.isKeyDown("Left") && ammo>0 && reloadTime>=10) {
+            getWorld().addObject(new Bullet(180), getX()-widthLeft, getY());
+            ammo--;
+            reloadTime=0;
+        }
+        if (Greenfoot.isKeyDown("Right") && ammo>0 && reloadTime>=10) {
+            getWorld().addObject(new Bullet(0), getX()+widthRight, getY());
+            ammo--;
+            reloadTime=0;
         }
     }
     public double getHeight() {

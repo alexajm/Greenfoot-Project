@@ -18,15 +18,20 @@ public class Bullet extends BetterActor
     }
     public Bullet(int direction) {
         setRotation(direction);
+        if (direction==180)
+            getImage().mirrorVertically();
     }
     public void bulletMotion() {
-        move(5);
+        move(10);
         Actor target = getOneIntersectingObject(BetterActor.class);
-        if (target!=null) {
+        if (target!=null && !(target instanceof TestMan)) {
             if (target instanceof Enemy)
                 getWorld().removeObject(target);
-            else
+            if ((target instanceof Platform) || isAtEdge())
                 getWorld().removeObject(this);
         }
+    }
+    public boolean isTouchingEdge() {
+        return isAtEdge();
     }
 }
