@@ -31,7 +31,14 @@ public class Enemy extends BetterActor
     }
     public void enemyMovement() {
         move(speed);
-        if (force.isTouchingWall(this)) {
+        int widthLeft = getImage().getWidth()/2 - leftExcess;
+        int widthRight = getImage().getWidth()/2 - rightExcess;
+        int height = getImage().getHeight() - botExcess;
+        Actor platformLeft = getOneObjectAtOffset(-widthLeft, height, Platform.class);
+        Actor platformRight = getOneObjectAtOffset(widthRight, height, Platform.class);
+        boolean left = platformLeft!=null;
+        boolean right = platformRight!=null;
+        if (force.isTouchingWall(this) || (!(left&&right)&&(left||right))) {
             move(-speed);
             speed*=-1;
         }
