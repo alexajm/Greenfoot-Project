@@ -22,18 +22,9 @@ public class Exit extends Platform
     private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, -getImage().getHeight()/2, TestMan.class); //Looks for players standing on top of the block
         if (player!=null && Scorekeeper.getScore()>=3) {
-            System.out.println("Exit active");
-            /*getWorld().showText("You Won!", getWorld().getWidth()/2, getWorld().getHeight()/2);
-            Greenfoot.stop();*/
             getWorld().showText(exitText, getWorld().getWidth()/2, getWorld().getHeight()/2);
             GameWorld.incrementLevel();
-            List objects = getWorld().getObjects(null);
-            System.out.println(objects);
-            objects.remove(getWorld());
-            System.out.println(objects);
-            getWorld().removeObjects(objects);
-            System.out.println(getWorld().getHeight());
-            changeLevel();
+            ((GameWorld) getWorld()).changeLevel();
         }
     }
     public static void setText(String text) {

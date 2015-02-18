@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class GameWorld here.
@@ -19,7 +20,11 @@ public class GameWorld extends World
         changeLevel();
     }
     public void changeLevel() {
-        System.out.println("Level change received");
+        /*try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {}*/
+        List objects = getObjects(null);
+        removeObjects(objects);
         switch (level) {
             case 1:
                 level1();
