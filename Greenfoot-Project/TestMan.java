@@ -10,7 +10,6 @@ public class TestMan extends BetterActor
 {
     Force force = new Force();
     final double pi = Math.PI;
-    static int ammo = 3;
     int reloadTime = 10;
     
     /**
@@ -57,14 +56,14 @@ public class TestMan extends BetterActor
             force.setXComp(0);
             System.out.println("Down detected");
         }
-        if (Greenfoot.isKeyDown("Left") && ammo>0 && reloadTime>=10) {
+        if (Greenfoot.isKeyDown("Left") && Scorekeeper.getAmmo()>0 && reloadTime>=10) {
             getWorld().addObject(new Bullet(180), getX()-widthLeft, getY());
-            ammo--;
+            Scorekeeper.decrementAmmo();
             reloadTime=0;
         }
-        if (Greenfoot.isKeyDown("Right") && ammo>0 && reloadTime>=10) {
+        if (Greenfoot.isKeyDown("Right") && Scorekeeper.getAmmo()>0 && reloadTime>=10) {
             getWorld().addObject(new Bullet(0), getX()+widthRight, getY());
-            ammo--;
+            Scorekeeper.decrementAmmo();
             reloadTime=0;
         }
     }
@@ -73,8 +72,5 @@ public class TestMan extends BetterActor
     }
     public int getScore() {
         return Scorekeeper.getScore();
-    }
-    public static void incrementAmmo() {
-        ammo++;
     }
 }

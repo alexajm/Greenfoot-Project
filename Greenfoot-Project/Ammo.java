@@ -26,7 +26,7 @@ public class Ammo extends BetterActor
     private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, 0, TestMan.class);
         if (player!=null) { //If there's a player touching the diamond, the score is incremented and the diamond is removed
-            TestMan.incrementAmmo();
+            Scorekeeper.incrementAmmo();
             getWorld().removeObject(this);
         }
     } 
