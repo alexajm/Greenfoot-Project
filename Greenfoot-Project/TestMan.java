@@ -10,7 +10,7 @@ public class TestMan extends BetterActor
 {
     Force force = new Force();
     final double pi = Math.PI;
-    int ammo = 3;
+    static int ammo = 3;
     int reloadTime = 10;
     
     /**
@@ -73,5 +73,8 @@ public class TestMan extends BetterActor
     }
     public int getScore() {
         return Scorekeeper.getScore();
+    }
+    public static void incrementAmmo() {
+        ammo++;
     }
 }

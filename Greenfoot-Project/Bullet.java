@@ -27,8 +27,7 @@ public class Bullet extends BetterActor
         if (target!=null && !(target instanceof TestMan)) {
             if (target instanceof Enemy)
                 getWorld().removeObject(target);
-            if ((target instanceof Platform) || isAtEdge())
-                getWorld().removeObject(this);
+            getWorld().removeObject(this);
         }
     }
     public boolean isTouchingEdge() {

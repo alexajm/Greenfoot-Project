@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed Feb 18 09:11:44 EST 2015
+#Wed Feb 18 09:51:24 EST 2015
 target16.name=Platform
 target2.name=Enemy
 target9.name=Water
@@ -100,6 +100,7 @@ dependency16.to=Platform
 target16.naviview.expanded=true
 target1.editor.y=23
 target1.editor.x=0
+class.Ammo.superclass=BetterActor
 dependency13.from=TestMan
 dependency16.type=UsesDependency
 class.TestMan.image=man01.png
@@ -152,6 +153,7 @@ dependency21.to=Force
 target7.naviview.expanded=true
 target6.name=Player
 target16.showInterface=false
+class.Ammo.image=bullet2.png
 dependency15.type=UsesDependency
 dependency12.from=Exit
 target14.width=80
