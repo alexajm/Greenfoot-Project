@@ -34,12 +34,12 @@ public class Enemy extends BetterActor
         int widthLeft = getImage().getWidth()/2 - leftExcess;
         int widthRight = getImage().getWidth()/2 - rightExcess;
         int height = getImage().getHeight() - botExcess;
-        Actor platformLeft = getOneObjectAtOffset(-widthLeft, height, Platform.class);
-        Actor platformRight = getOneObjectAtOffset(widthRight, height, Platform.class);
+        Actor platformLeft = getOneObjectAtOffset(-widthLeft, height, Platform.class); //Looks for platform below and to the left
+        Actor platformRight = getOneObjectAtOffset(widthRight, height, Platform.class); //Looks for platform below and to the right
         boolean left = platformLeft!=null;
         boolean right = platformRight!=null;
-        if (force.isTouchingWall(this) || (!(left&&right)&&(left||right))) {
-            move(-speed);
+        if (force.isTouchingWall(this) || (!(left&&right)&&(left||right))) { //If touching a wall, the enemy turns. If there's a platform below it on one
+            move(-speed);                                                    //side, but not the other, it turns as well. This uses an XOR gate.
             speed*=-1;
         }
     }

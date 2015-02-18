@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Scorekeeper extends Actor
+public class Scorekeeper extends BetterActor
 {
     private static int numDiamonds = 0;
     private GreenfootImage transparent = new GreenfootImage("transparent.png");
