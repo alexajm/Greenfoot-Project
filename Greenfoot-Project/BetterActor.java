@@ -25,4 +25,17 @@ public class BetterActor extends Actor
         Actor actor = super.getOneObjectAtOffset(dx, dy, cls);
         return actor;
     }
+    public void changeLevel() {
+        System.out.println("Changing level");
+        System.out.println((GameWorld) getWorld() == null);
+        System.out.println(getWorld() == null);
+        switch (GameWorld.getLevel()) {
+            case 1:
+                ((GameWorld) getWorld()).level1();
+                break;
+            default:
+                //GameWorld.end();
+                break;
+        }
+    }
 }
