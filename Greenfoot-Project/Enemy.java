@@ -29,7 +29,7 @@ public class Enemy extends BetterActor
         botExcess = 2;
         topExcess = 1;
     }
-    public void enemyMovement() {
+    public void enemyMovement() { //Describes how the enemy moves
         move(speed);
         int widthLeft = getImage().getWidth()/2 - leftExcess;
         int widthRight = getImage().getWidth()/2 - rightExcess;

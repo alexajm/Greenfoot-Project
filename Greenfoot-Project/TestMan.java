@@ -56,21 +56,21 @@ public class TestMan extends BetterActor
             force.setXComp(0);
             System.out.println("Down detected");
         }
-        if (Greenfoot.isKeyDown("Left") && Scorekeeper.getAmmo()>0 && reloadTime>=10) {
+        if (Greenfoot.isKeyDown("Left") && Scorekeeper.getAmmo()>0 && reloadTime>=10) { //Fires bullet left
             getWorld().addObject(new Bullet(180), getX()-widthLeft, getY());
             Scorekeeper.decrementAmmo();
             reloadTime=0;
         }
-        if (Greenfoot.isKeyDown("Right") && Scorekeeper.getAmmo()>0 && reloadTime>=10) {
+        if (Greenfoot.isKeyDown("Right") && Scorekeeper.getAmmo()>0 && reloadTime>=10) { //Fires bullet right
             getWorld().addObject(new Bullet(0), getX()+widthRight, getY());
             Scorekeeper.decrementAmmo();
             reloadTime=0;
         }
     }
-    public double getHeight() {
+    public double getHeight() { //Returns height of image
         return getImage().getHeight();
     }
-    public int getScore() {
+    public int getScore() { //Returns player's score
         return Scorekeeper.getScore();
     }
 }

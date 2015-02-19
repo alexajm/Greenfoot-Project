@@ -17,6 +17,7 @@ public class Ammo extends BetterActor
     public void act() 
     {
         force.move(this);
+        force.gravity(this);
         checkForPlayer();
         ammoMovement();
     }
@@ -25,12 +26,12 @@ public class Ammo extends BetterActor
     }
     private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, 0, TestMan.class);
-        if (player!=null) { //If there's a player touching the diamond, the score is incremented and the diamond is removed
+        if (player!=null) { //If there's a player touching the ammo, the score is incremented and the ammo is removed
             Scorekeeper.incrementAmmo();
             getWorld().removeObject(this);
         }
     } 
-    private void ammoMovement() {
+    private void ammoMovement() { //Describes the swaying movement of the ammo
         if (getRotation()>0 && getRotation()<90) {
             force.subtractTorque(0.15);
         }

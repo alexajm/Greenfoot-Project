@@ -6,8 +6,8 @@
  */
 public class Coordinate  
 {
-    private int x;
-    private int y;
+    private int x; //X-coordinate
+    private int y; //X-coordinate
     
     public Coordinate() {
         x = 0;
@@ -17,13 +17,13 @@ public class Coordinate
         this.x = x;
         this.y = y;
     }
-    public String toString() {
+    public String toString() { //Returns the coordinates in (x, y) format
         return "(" + x + ", " + y + ")";
     }
-    public int getX() {
+    public int getX() { //Returns x-coordinate
         return x;
     }
-    public int getY() {
+    public int getY() { //Returns y-coordinate
         return y;
     }
 }

@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.*;
 
 /**
  * Write a description of class Message here.
@@ -8,9 +9,9 @@ import greenfoot.*;
  */
 public class Text extends BetterActor
 {
-    private String text;
-    private int x;
-    private int y;
+    private String text; //The text this object represents
+    private int x; //The text's x-coordinate
+    private int y; //The text's y-coordinate
     GreenfootImage textImage = new greenfoot.GreenfootImage(100, 20);
     
     public Text() {
@@ -23,13 +24,14 @@ public class Text extends BetterActor
         this.text = text;
         this.x = x;
         this.y = y;
-        textImage.drawString(text, x, y);
-        setImage(textImage);
+        textImage.drawString(text, 100, 20);
+        this.setImage(textImage);
+        //getWorld().addObject(this, x, y);
     }
-    public String getText() {
+    public String getText() { //Returns the text
         return text;
     }
-    public void setText(String text) {
+    public void setText(String text) { //Changes the text
         this.text = text;
     }
 }

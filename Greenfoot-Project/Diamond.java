@@ -17,6 +17,7 @@ public class Diamond extends BetterActor
     public void act() 
     {
         force.move(this);
+        force.gravity(this);
         checkForPlayer();
         diamondMovement();
     }
@@ -30,7 +31,7 @@ public class Diamond extends BetterActor
             getWorld().removeObject(this);
         }
     }
-    private void diamondMovement() {
+    private void diamondMovement() { //Describes the swaying movement of the diamond
         if (getRotation()>0 && getRotation()<90) {
             force.subtractTorque(0.15);
         }

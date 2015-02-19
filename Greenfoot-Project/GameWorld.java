@@ -19,13 +19,10 @@ public class GameWorld extends World
         super(1000, 600, 1); 
         changeLevel();
     }
-    public void changeLevel() {
-        /*try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {}*/
+    public void changeLevel() { //Manages game's levels and changes between them
         List objects = getObjects(null);
-        removeObjects(objects);
-        switch (level) {
+        removeObjects(objects); //Removes all objects from the world before instantiating the next level's objects
+        switch (level) { //Determines which level to build for the player
             case 1:
                 level1();
                 break;
@@ -34,7 +31,7 @@ public class GameWorld extends World
                 break;
         }
     }
-    public void level1() {
+    public void level1() { //Object placement for Level 1
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
         addObject(new Platform(), 281, 518);
@@ -47,14 +44,14 @@ public class GameWorld extends World
         addObject(new TestMan(), 57, 574);
         Exit.setText("Level 1 Complete");
     }
-    public void end() {
+    public void end() { //The game's end screen
         showText("You Won!", getWidth()/2, getHeight()/2);
         Greenfoot.stop();
     }
-    public static void incrementLevel() {
+    public static void incrementLevel() { //Increases the level the player is on
         level++;
     }
-    public static int getLevel() {
+    public static int getLevel() { //Returns the level the player is on
         return level;
     }
 }
