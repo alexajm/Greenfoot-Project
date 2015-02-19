@@ -8,9 +8,9 @@ import greenfoot.*;
  */
 public class Text extends BetterActor
 {
-    private String text;
-    private int x;
-    private int y;
+    private String text; //The text this object represents
+    private int x; //The text's x-coordinate
+    private int y; //The text's y-coordinate
     GreenfootImage textImage = new greenfoot.GreenfootImage(100, 20);
     
     public Text() {
@@ -26,10 +26,10 @@ public class Text extends BetterActor
         textImage.drawString(text, x, y);
         setImage(textImage);
     }
-    public String getText() {
+    public String getText() { //Returns the text
         return text;
     }
-    public void setText(String text) {
+    public void setText(String text) { //Changes the text
         this.text = text;
     }
 }

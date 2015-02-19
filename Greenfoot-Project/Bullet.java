@@ -15,27 +15,18 @@ public class Bullet extends BetterActor
     public void act() 
     {
         bulletMotion();
-        atEdge();
     }
     public Bullet(int direction) {
         setRotation(direction);
-        if (direction==180)
+        if (direction==180) //Flips the image so that it's right side up
             getImage().mirrorVertically();
     }
-    public void bulletMotion() {
+    public void bulletMotion() { //Describes how the bullet moves
         move(10);
         Actor target = getOneIntersectingObject(BetterActor.class);
-        if (target!=null && !(target instanceof TestMan)) {
-            if (target instanceof Enemy)
+        if ((target!=null && !(target instanceof TestMan)) || isAtEdge()) { //When the bullet collides with either the edge of the world or another object,
+            if (target instanceof Enemy)                                    //it disappears. If it collides with an enemy, the enemy disappears as well.
                 getWorld().removeObject(target);
-            getWorld().removeObject(this);
-        }
-    }
-    public boolean isTouchingEdge() {
-        return isAtEdge();
-    }
-    public void atEdge() {
-        if (this.isTouchingEdge()) {
             getWorld().removeObject(this);
         }
     }

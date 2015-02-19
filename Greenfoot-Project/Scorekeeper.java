@@ -24,20 +24,20 @@ public class Scorekeeper extends BetterActor
     public static void incrementDiamonds() { //Increments the number of diamonds the player has collected
         numDiamonds++;
     }
-    public static void incrementAmmo() {
+    public static void incrementAmmo() { //Increments the player's ammo
         ammo++;
     }
-    public static void decrementAmmo() {
+    public static void decrementAmmo() { //Decrements the player's ammo
         ammo--;
     }
     public void setScore() { //Changes the score to reflect the number of diamonds collected so far
         getWorld().showText(Integer.toString(numDiamonds), 55, 27);
         getWorld().showText(Integer.toString(ammo), 55, 75);
     }
-    public static int getScore() {
+    public static int getScore() { //Returns the number of diamonds the player has collected
         return numDiamonds;
     }
-    public static int getAmmo() {
+    public static int getAmmo() { //Returns the amount of ammo the player has
         return ammo;
     }
 }
