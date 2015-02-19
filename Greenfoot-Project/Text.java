@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.*;
 
 /**
  * Write a description of class Message here.
@@ -23,8 +24,9 @@ public class Text extends BetterActor
         this.text = text;
         this.x = x;
         this.y = y;
-        textImage.drawString(text, x, y);
-        setImage(textImage);
+        textImage.drawString(text, 100, 20);
+        this.setImage(textImage);
+        //getWorld().addObject(this, x, y);
     }
     public String getText() { //Returns the text
         return text;

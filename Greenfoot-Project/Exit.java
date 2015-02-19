@@ -23,6 +23,7 @@ public class Exit extends Platform
         Actor player = (Actor) getOneObjectAtOffset(0, -getImage().getHeight()/2, TestMan.class); //Looks for players standing on top of the block
         if (player!=null && Scorekeeper.getScore()>=3) { //If there's a player with a score of three or more there, they advance one level
             getWorld().showText(exitText, getWorld().getWidth()/2, getWorld().getHeight()/2);
+            Greenfoot.delay(100);
             GameWorld.incrementLevel();
             ((GameWorld) getWorld()).changeLevel();
         }
