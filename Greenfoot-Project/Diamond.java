@@ -17,6 +17,7 @@ public class Diamond extends BetterActor
     public void act() 
     {
         force.move(this);
+        force.gravity(this);
         checkForPlayer();
         diamondMovement();
     }

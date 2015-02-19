@@ -20,10 +20,7 @@ public class GameWorld extends World
         changeLevel();
     }
     public void changeLevel() { //Manages game's levels and changes between them
-        /*try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {}*/
-        List objects = getObjects(null); 
+        List objects = getObjects(null);
         removeObjects(objects); //Removes all objects from the world before instantiating the next level's objects
         switch (level) { //Determines which level to build for the player
             case 1:
