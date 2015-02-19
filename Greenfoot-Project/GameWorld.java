@@ -36,6 +36,7 @@ public class GameWorld extends World
     }
     public void level1() {
         addObject(new Scorekeeper(), 25, 50);
+        addObject(new Health(), 900, 50);
         addObject(new Platform(), 281, 518);
         addObject(new Platform(), 465, 474);
         addObject(new Platform(), 658, 426);

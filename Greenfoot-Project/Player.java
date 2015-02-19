@@ -39,7 +39,7 @@ public class Player extends BetterActor
             move(-5);
         if (Greenfoot.isKeyDown("Right")) //Moves right
             move(5);
-        if (Greenfoot.isKeyDown("Up") && (getY()>=getWorld().getHeight()-height || platform!=null)) { //Makes player jump
+        if (Greenfoot.isKeyDown("Up") && (getY()>=getWorld().getHeight()-height && platform!=null)) { //Makes player jump
             force.addVectorInDirection(90, -15.0);
             System.out.println("Up detected");
         }

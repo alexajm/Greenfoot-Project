@@ -15,6 +15,7 @@ public class Bullet extends BetterActor
     public void act() 
     {
         bulletMotion();
+        atEdge();
     }
     public Bullet(int direction) {
         setRotation(direction);
@@ -32,5 +33,10 @@ public class Bullet extends BetterActor
     }
     public boolean isTouchingEdge() {
         return isAtEdge();
+    }
+    public void atEdge() {
+        if (this.isTouchingEdge()) {
+            getWorld().removeObject(this);
+        }
     }
 }

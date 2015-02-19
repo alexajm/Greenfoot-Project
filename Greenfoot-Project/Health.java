@@ -16,6 +16,7 @@ public class Health extends Player
     private GreenfootImage Health1 = new GreenfootImage("Health1.png");
     private GreenfootImage Health0_5 = new GreenfootImage("Health0.5.png");
     private double health = 3.0;
+    
     /**
      * Act - do whatever the Health wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,6 +24,7 @@ public class Health extends Player
     public void act() 
     {
         setHealth();
+        
     }    
     public Health()
     {
@@ -57,9 +59,11 @@ public class Health extends Player
     }
     public void decrementHealth()
     {
-        if (force.canSee(Enemies.class, this))
+        Actor enemy = getOneObjectAtOffset(0, 0, Enemy.class);
+        if (enemy!=null)
         {
             health-=0.5;
         }
+        
     }
 }
