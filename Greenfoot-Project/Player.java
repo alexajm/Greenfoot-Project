@@ -11,6 +11,7 @@ public class Player extends BetterActor
     Force force = new Force();
     final double pi = Math.PI;
     int reloadTime = 10;
+   
     
     /**
      * Act - do whatever the TestMan wants to do. This method is called whenever
@@ -72,5 +73,13 @@ public class Player extends BetterActor
     }
     public int getScore() { //Returns player's score
         return Scorekeeper.getScore();
+    }
+    public void decrementHealth(){
+        Actor enemy = betterGetOneObjectAtOffset(0, 0, Enemy.class);
+        if (enemy!=null)
+        {
+            Health.setHealth(Health.getHealth()-0.5);
+            System.out.println("Decremented health");
+        }
     }
 }
