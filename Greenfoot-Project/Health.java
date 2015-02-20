@@ -63,7 +63,13 @@ public class Health extends Player
         if (enemy!=null)
         {
             health-=0.5;
+            System.out.println("Decremented health");
         }
         
     }
+    public double getHealth()
+    {
+        return health;
+    }
+    
 }
