@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Player here.
+ * Write a description of class TestMan2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -10,6 +10,7 @@ public class Player extends BetterActor
 {
     Force force = new Force();
     final double pi = Math.PI;
+    int reloadTime = 10;
     
     /**
      * Act - do whatever the TestMan wants to do. This method is called whenever
@@ -18,13 +19,19 @@ public class Player extends BetterActor
     public void act() 
     {
         force.move(this);
-        force.gravity(this);
         force.lookForWall(this);
         force.lookForCeiling(this);
+        force.gravity(this);
+        //force.move2(this);
         checkKeys();
+        reloadTime++;
     }
     public Player() {
-        detectPoints.add(new Coordinate(0, getImage().getHeight()-topExcess-1));
+        rightExcess = 16;
+        leftExcess = 15;
+        botExcess = 2;
+        topExcess = 1;
+        detectPoints.add(new Coordinate(0, -((getImage().getHeight()-topExcess-botExcess)/2)-1));
         detectPoints.add(new Coordinate(-15, -11));
         detectPoints.add(new Coordinate(-15, 8));
         detectPoints.add(new Coordinate(-6, 27));
@@ -33,25 +40,37 @@ public class Player extends BetterActor
         detectPoints.add(new Coordinate(6, 27));
     }
     public void checkKeys() { //Facilitates user-controlled movement of the character
-        double height = getHeight()/2;
+        double height = getImage().getHeight()/2;
+        int widthRight = getImage().getWidth()/2 - rightExcess;
+        int widthLeft = getImage().getWidth()/2 - leftExcess;
         Actor platform = getOneObjectAtOffset(0, (int)height, Platform.class);
-        if (Greenfoot.isKeyDown("Left")) //Moves left
+        if (Greenfoot.isKeyDown("A")) //Moves left
             move(-5);
-        if (Greenfoot.isKeyDown("Right")) //Moves right
+        if (Greenfoot.isKeyDown("D")) //Moves right
             move(5);
-        if (Greenfoot.isKeyDown("Up") && (getY()>=getWorld().getHeight()-height && platform!=null)) { //Makes player jump
+        if (Greenfoot.isKeyDown("W") && (getY()>=getWorld().getHeight()-height || platform!=null)) { //Makes player jump
             force.addVectorInDirection(90, -15.0);
             System.out.println("Up detected");
         }
-        if (Greenfoot.isKeyDown("Down")) { //Stops unwanted sideways movement that has happens when there's an error in the past
+        if (Greenfoot.isKeyDown("S")) { //Stops unwanted sideways movement that has happens when there's an error in the past
             force.setXComp(0);
             System.out.println("Down detected");
         }
+        if (Greenfoot.isKeyDown("Left") && Scorekeeper.getAmmo()>0 && reloadTime>=10) { //Fires bullet left
+            getWorld().addObject(new Bullet(180), getX()-widthLeft, getY());
+            Scorekeeper.decrementAmmo();
+            reloadTime=0;
+        }
+        if (Greenfoot.isKeyDown("Right") && Scorekeeper.getAmmo()>0 && reloadTime>=10) { //Fires bullet right
+            getWorld().addObject(new Bullet(0), getX()+widthRight, getY());
+            Scorekeeper.decrementAmmo();
+            reloadTime=0;
+        }
     }
-    public double getHeight() {
+    public double getHeight() { //Returns height of image
         return getImage().getHeight();
     }
-    public int getScore() {
+    public int getScore() { //Returns player's score
         return Scorekeeper.getScore();
     }
 }

@@ -42,7 +42,7 @@ public class GameWorld extends World
         addObject(new Diamond(), 287, 450);
         addObject(new Diamond(), 470, 405);
         addObject(new Diamond(), 663, 359);
-        addObject(new TestMan(), 57, 574);
+        addObject(new Player(), 57, 574);
         Exit.setText("Level 1 Complete");
     }
     public void end() { //The game's end screen

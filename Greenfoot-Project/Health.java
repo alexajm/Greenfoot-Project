@@ -57,7 +57,7 @@ public class Health extends Player
         }
     }
     public void decrementHealth(){
-        Actor enemy = (Actor) getOneObjectAtOffset(0, 0, Enemy.class);
+        Actor enemy = betterGetOneObjectAtOffset(0, 0, Enemy.class);
         if (enemy!=null)
         {
             health=health-0.5;

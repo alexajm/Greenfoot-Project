@@ -50,9 +50,6 @@ public class Enemy extends BetterActor
             walking2.mirrorHorizontally();
         }
     }
-<<<<<<< HEAD
-
-=======
     public void decrementPlayersHealth() {
         if (force.canSee(Player.class, this)) {
             Health.setHealth(Health.getHealth()-0.5);
@@ -67,5 +64,4 @@ public class Enemy extends BetterActor
         }
         moveTime++;
     }
->>>>>>> origin/master
 }

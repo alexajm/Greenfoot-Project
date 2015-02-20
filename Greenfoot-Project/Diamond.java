@@ -25,7 +25,7 @@ public class Diamond extends BetterActor
         setRotation(17);
     }
     private void checkForPlayer() { //Checks to see if touching the player
-        Actor player = (Actor) getOneObjectAtOffset(0, 0, TestMan.class);
+        Actor player = (Actor) getOneObjectAtOffset(0, 0, Player.class);
         if (player!=null) { //If there's a player touching the diamond, the score is incremented and the diamond is removed
             Scorekeeper.incrementDiamonds();
             getWorld().removeObject(this);

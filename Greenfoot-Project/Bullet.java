@@ -24,7 +24,7 @@ public class Bullet extends BetterActor
     public void bulletMotion() { //Describes how the bullet moves
         move(10);
         Actor target = getOneIntersectingObject(BetterActor.class);
-        if ((target!=null && !(target instanceof TestMan)) || isAtEdge()) { //When the bullet collides with either the edge of the world or another object,
+        if ((target!=null && !(target instanceof Player)) || isAtEdge()) { //When the bullet collides with either the edge of the world or another object,
             if (target instanceof Enemy)                                    //it disappears. If it collides with an enemy, the enemy disappears as well.
                 getWorld().removeObject(target);
             getWorld().removeObject(this);
