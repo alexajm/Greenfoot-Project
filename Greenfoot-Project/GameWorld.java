@@ -32,6 +32,7 @@ public class GameWorld extends World
         }
     }
     public void level1() { //Object placement for Level 1
+        addObject(new Tutorial(), 300, 300);
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
         addObject(new Platform(), 281, 518);
