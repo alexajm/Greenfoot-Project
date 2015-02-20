@@ -26,6 +26,7 @@ public class Player extends BetterActor
         //force.move2(this);
         checkKeys();
         reloadTime++;
+        decrementHealth();
     }
     public Player() {
         rightExcess = 16;
