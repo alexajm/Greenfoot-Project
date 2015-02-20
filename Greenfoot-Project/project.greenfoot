@@ -1,10 +1,19 @@
 #Greenfoot properties
+<<<<<<< HEAD
 #Fri Feb 20 16:34:05 EST 2015
 target16.name=Platform
 dependency35.to=Text
 target2.name=Enemy
 class.Text.superclass=BetterActor
 target9.name=GameWorld
+=======
+#Fri Feb 20 15:44:28 EST 2015
+target16.name=TestMan
+dependency35.to=Text
+target2.name=Bullet
+class.Text.superclass=BetterActor
+target9.name=Ammo
+>>>>>>> origin/master
 class.NonvectorEntities.superclass=greenfoot.Actor
 dependency11.type=UsesDependency
 dependency18.type=UsesDependency
@@ -12,7 +21,7 @@ dependency15.from=BetterActor
 dependency8.to=Force
 target5.naviview.expanded=true
 target14.type=ClassTarget
-simulation.speed=50
+simulation.speed=49
 class.Exit.superclass=Platform
 dependency25.type=UsesDependency
 dependency22.from=Ammo
@@ -21,7 +30,10 @@ class.TorqueEntity.superclass=VectorEntity
 class.Diamond2.superclass=greenfoot.Actor
 dependency29.from=GameWorld
 target15.height=50
+<<<<<<< HEAD
 class.Level3.superclass=GameWorld
+=======
+>>>>>>> origin/master
 target7.type=ClassTarget
 target15.typeParameters=
 target11.width=80
@@ -32,6 +44,7 @@ class.Exit.image=brick.jpg
 dependency36.from=Health
 target10.editor.y=23
 target10.editor.x=0
+<<<<<<< HEAD
 class.Enemies.image=man01.png
 dependency2.to=Force
 target6.naviview.expanded=true
@@ -39,12 +52,25 @@ target6.editor.width=1932
 dependency1.type=UsesDependency
 target16.y=70
 target16.x=70
+=======
+dependency2.to=Force
+target6.naviview.expanded=true
+target6.editor.width=1280
+dependency1.type=UsesDependency
+target16.y=70
+target16.x=160
+>>>>>>> origin/master
 class.TestMan.superclass=BetterActor
 target14.editor.width=1280
 dependency8.type=UsesDependency
 dependency5.from=Diamond
+<<<<<<< HEAD
 target12.y=130
 target12.x=100
+=======
+target12.y=190
+target12.x=150
+>>>>>>> origin/master
 target3.editor.y=23
 target18.width=80
 target3.editor.x=0
@@ -56,13 +82,21 @@ target5.height=50
 target1.name=Bullet
 target11.naviview.expanded=true
 version=2.6.0
+<<<<<<< HEAD
 target8.name=Ammo
+=======
+target8.name=Scorekeeper
+>>>>>>> origin/master
 dependency36.to=Enemy
 dependency10.type=UsesDependency
 dependency17.type=UsesDependency
 class.Water.image=wet-blue.jpg
 dependency14.from=Player
+<<<<<<< HEAD
 package.numTargets=16
+=======
+package.numTargets=17
+>>>>>>> origin/master
 class.Player.superclass=BetterActor
 target13.type=ClassTarget
 dependency24.type=UsesDependency
@@ -73,7 +107,11 @@ dependency9.to=Platform
 target6.type=ClassTarget
 class.Water.superclass=Platform
 dependency30.to=TestMan
+<<<<<<< HEAD
 target7.y=430
+=======
+target7.y=310
+>>>>>>> origin/master
 target7.x=10
 target12.editor.y=23
 target12.editor.x=0
@@ -81,18 +119,31 @@ dependency31.type=UsesDependency
 dependency38.type=UsesDependency
 dependency35.from=GameWorld
 target8.editor.width=1280
+<<<<<<< HEAD
 target3.y=250
 target3.x=120
 >>>>>>>=origin/master
+=======
+target3.y=310
+target3.x=100
+>>>>>>>=Stashed changes
+>>>>>>> origin/master
 target7.typeParameters=
 dependency26.to=Scorekeeper
 target8.height=50
 target16.editor.width=1280
+<<<<<<< HEAD
 mainWindow.y=-9
 mainWindow.x=-9
 target12.showInterface=false
 target3.showInterface=false
 class.Level1.superclass=GameWorld
+=======
+mainWindow.y=23
+mainWindow.x=0
+target12.showInterface=false
+target3.showInterface=false
+>>>>>>> origin/master
 target17.typeParameters=
 dependency3.to=Platform
 target1.width=80
@@ -102,13 +153,21 @@ target5.editor.y=23
 target5.editor.x=0
 dependency20.to=TestMan
 target5.editor.height=712
+<<<<<<< HEAD
 class.Enemies.superclass=VectorEntity
 target14.name=Diamond
+=======
+target14.name=Coordinate
+>>>>>>> origin/master
 target2.naviview.expanded=true
 target9.height=50
 target11.showInterface=false
 target2.showInterface=false
+<<<<<<< HEAD
 target7.name=Scorekeeper
+=======
+target7.name=Health
+>>>>>>> origin/master
 dependency16.to=Enemy
 target16.naviview.expanded=true
 target1.editor.y=23
@@ -120,16 +179,27 @@ dependency13.from=Player
 dependency16.type=UsesDependency
 class.TestMan.image=man01.png
 target14.typeParameters=
+<<<<<<< HEAD
 dependency37.to=Player
 target8.width=80
 target13.editor.height=712
 target4.editor.height=1092
+=======
+dependency37.to=Scorekeeper
+target8.width=100
+target13.editor.height=712
+target4.editor.height=712
+>>>>>>> origin/master
 target12.type=ClassTarget
 target13.height=50
 dependency23.type=UsesDependency
 dependency20.from=Ammo
 class.Enemy.superclass=BetterActor
+<<<<<<< HEAD
 target4.width=90
+=======
+target4.width=80
+>>>>>>> origin/master
 dependency27.from=GameWorld
 target18.showInterface=false
 target9.showInterface=false
@@ -145,12 +215,21 @@ target2.height=50
 class.Coordinate.superclass=
 dependency37.type=UsesDependency
 dependency34.from=Exit
+<<<<<<< HEAD
 target15.y=70
 target15.x=160
 dependency31.to=GameWorld
 target11.y=190
 target3.editor.height=712
 target11.x=150
+=======
+target15.y=10
+target15.x=180
+dependency31.to=GameWorld
+target11.y=310
+target3.editor.height=712
+target11.x=190
+>>>>>>> origin/master
 target12.editor.height=712
 target5.editor.width=1280
 target17.showInterface=false
@@ -162,6 +241,7 @@ target11.typeParameters=
 dependency6.type=UsesDependency
 target13.editor.width=1280
 dependency4.to=Platform
+<<<<<<< HEAD
 target7.editor.y=23
 class.Diamond.superclass=BetterActor
 target7.editor.x=0
@@ -175,10 +255,26 @@ target13.name=Coordinate
 dependency21.to=Scorekeeper
 target7.naviview.expanded=true
 target6.name=Health
+=======
+target7.editor.y=32
+class.Diamond.superclass=BetterActor
+target7.editor.x=40
+target9.typeParameters=
+target16.height=50
+target7.width=80
+target11.editor.height=712
+<<<<<<<=Updated upstream
+target2.editor.height=712
+target13.name=Text
+dependency21.to=Scorekeeper
+target7.naviview.expanded=true
+target6.name=Player
+>>>>>>> origin/master
 target16.showInterface=false
 class.Ammo.image=bullet3.png
 dependency15.type=UsesDependency
 dependency12.from=TestMan
+<<<<<<< HEAD
 target14.width=80
 dependency17.to=Bullet
 dependency19.from=Ammo
@@ -188,6 +284,17 @@ target6.x=10
 target9.editor.height=712
 target10.width=80
 target2.y=310
+=======
+target14.width=90
+dependency17.to=Bullet
+dependency19.from=Ammo
+target6.y=130
+class.Bullet.superclass=BetterActor
+target6.x=190
+target9.editor.height=712
+target10.width=100
+target2.y=370
+>>>>>>> origin/master
 target18.editor.height=712
 target10.editor.height=712
 target11.type=ClassTarget
@@ -207,7 +314,11 @@ dependency33.from=GameWorld
 dependency36.type=UsesDependency
 dependency11.to=TestMan
 target6.height=50
+<<<<<<< HEAD
 target7.editor.width=1280
+=======
+target7.editor.width=900
+>>>>>>> origin/master
 target17.editor.height=712
 dependency32.to=GameWorld
 class.Scorekeeper.image=scorekeeper.png
@@ -223,12 +334,21 @@ dependency28.to=Exit
 target13.naviview.expanded=true
 target2.editor.width=1938
 target3.typeParameters=
+<<<<<<< HEAD
 target13.width=90
 dependency5.to=TestMan
 target10.editor.width=1280
 target12.name=Text
 target13.typeParameters=
 target5.name=Player
+=======
+target13.width=80
+dependency5.to=TestMan
+target10.editor.width=1280
+target12.name=Force
+target13.typeParameters=
+target5.name=BetterActor
+>>>>>>> origin/master
 dependency22.to=Scorekeeper
 dependency14.type=UsesDependency
 dependency11.from=Water
@@ -236,8 +356,13 @@ target14.naviview.expanded=true
 target18.y=70
 dependency18.from=Bullet
 target18.x=70
+<<<<<<< HEAD
 target14.y=10
 target14.x=180
+=======
+target14.y=370
+target14.x=10
+>>>>>>> origin/master
 target10.type=ClassTarget
 dependency18.to=TestMan
 dependency21.type=UsesDependency
@@ -245,30 +370,44 @@ package.numDependencies=38
 target17.type=ClassTarget
 dependency28.type=UsesDependency
 dependency25.from=Player
+<<<<<<< HEAD
 target10.y=310
 target3.type=ClassTarget
 target10.x=190
 class.VectorEntity.superclass=greenfoot.Actor
+=======
+target10.y=250
+target3.type=ClassTarget
+target10.x=10
+>>>>>>> origin/master
 target3.naviview.expanded=true
-class.Enemy.image=man01.png
+class.Enemy.image=Alien.Still.png
 target11.editor.y=23
 dependency35.type=UsesDependency
 dependency32.from=BetterActor
 target16.width=80
 target11.editor.x=0
+<<<<<<< HEAD
 class.Level2.superclass=GameWorld
+=======
+>>>>>>> origin/master
 target10.typeParameters=
 target18.editor.width=1280
 class.Force.superclass=
 target8.typeParameters=
 dependency12.to=Coordinate
 class.Scorekeeper.superclass=BetterActor
+<<<<<<< HEAD
 target4.editor.width=1932
+=======
+target4.editor.width=1280
+>>>>>>> origin/master
 dependency4.type=UsesDependency
 dependency1.from=Diamond
 dependency33.to=Health
 dependency8.from=Player
 target12.editor.width=1280
+<<<<<<< HEAD
 target4.naviview.expanded=true
 target14.height=50
 target18.naviview.expanded=true
@@ -286,6 +425,28 @@ dependency6.to=BetterActor
 target4.name=BetterActor
 target1.y=370
 target1.x=200
+=======
+class.Tutorial.image=transparent.png
+target4.naviview.expanded=true
+target14.height=50
+target18.naviview.expanded=true
+target9.y=370
+target4.editor.y=23
+target9.x=110
+target4.editor.x=0
+dependency29.to=Diamond
+target11.name=Water
+target5.y=190
+target5.x=10
+target18.name=Platform
+target3.height=50
+dependency6.to=BetterActor
+target4.name=Exit
+target1.y=10
+target1.x=70
+target5.typeParameters=
+dependency13.type=UsesDependency
+>>>>>>> origin/master
 dependency10.from=Enemy
 dependency13.type=UsesDependency
 target5.typeParameters=
@@ -370,21 +531,36 @@ dependency1.to=Force
 dependency30.from=GameWorld
 dependency33.type=UsesDependency
 target9.editor.width=1280
+<<<<<<< HEAD
 target5.width=80
 dependency37.from=Enemy
+=======
+target5.width=90
+dependency37.from=Tutorial
+>>>>>>> origin/master
 class.Platform.image=bricks2.jpg
 target1.naviview.expanded=true
 target17.editor.width=1280
 target15.naviview.expanded=true
 class.GameWorld.superclass=greenfoot.World
+<<<<<<< HEAD
 target8.y=370
 target8.x=110
+=======
+target8.y=430
+target8.x=10
+>>>>>>> origin/master
 class.Health.superclass=Player
 target3.editor.width=1280
 target12.width=80
 dependency2.type=UsesDependency
+<<<<<<< HEAD
 target4.y=190
 target4.x=10
+=======
+target4.y=250
+target4.x=120
+>>>>>>> origin/master
 target12.height=50
 dependency6.from=Force
 dependency9.type=UsesDependency
@@ -392,10 +568,18 @@ target8.editor.y=23
 target8.editor.x=0
 target14.editor.height=712
 target11.editor.width=1280
+<<<<<<< HEAD
+=======
+class.Tutorial.superclass=BetterActor
+>>>>>>> origin/master
 world.lastInstantiated=GameWorld
 dependency14.to=Platform
 target18.typeParameters=
 target1.height=50
+<<<<<<< HEAD
 mainWindow.width=1932
+=======
+mainWindow.width=1280
+>>>>>>> origin/master
 target4.typeParameters=
 =\=\=\=\=\=\=

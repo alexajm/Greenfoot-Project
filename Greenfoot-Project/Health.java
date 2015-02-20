@@ -15,7 +15,7 @@ public class Health extends Player
     private GreenfootImage Health1_5 = new GreenfootImage("Health1.5.png");
     private GreenfootImage Health1 = new GreenfootImage("Health1.png");
     private GreenfootImage Health0_5 = new GreenfootImage("Health0.5.png");
-    private double health = 3.0;
+    private static double health = 3.0;
     
     /**
      * Act - do whatever the Health wants to do. This method is called whenever
@@ -63,12 +63,11 @@ public class Health extends Player
             health=health-0.5;
             System.out.println("Decremented health");
         }
-        
     }
-    public double getHealth(){
+    public static double getHealth(){
         return health;
     }
-    public void setHealth(double hlth) {
+    public static void setHealth(double hlth) {
         health = hlth;
     }
 }

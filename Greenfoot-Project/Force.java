@@ -257,11 +257,11 @@ public class Force
         return result;
     }
     public boolean isTouchingGround(BetterActor actor) {
-        boolean result = true;
+        boolean result = false;
         double height = actor.getImage().getHeight()/2 - actor.botExcess - 1;
         Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class);
         if (actor.getY()>=actor.getWorld().getHeight()-height || platform!=null)
-            result = false;
+            result = true;
         return result;
     }
     public boolean isTouchingGround2(BetterActor actor) {
