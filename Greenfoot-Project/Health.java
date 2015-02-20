@@ -30,6 +30,7 @@ public class Health extends Player
         setImage(HealthFull);
     }
     public void setHealth(){
+        System.out.println(health);
         if (health==2.5)
         {
             setImage(Health2_5);
@@ -56,10 +57,10 @@ public class Health extends Player
         }
     }
     public void decrementHealth(){
-        Actor enemy = getOneObjectAtOffset(0, 0, Enemy.class);
-        if (force.canSee(Enemy.class,this))
+        Actor enemy = (Actor) getOneObjectAtOffset(0, 0, Enemy.class);
+        if (enemy!=null)
         {
-            health-=0.5;
+            health=health-0.5;
             System.out.println("Decremented health");
         }
         

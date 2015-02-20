@@ -43,9 +43,5 @@ public class Enemy extends BetterActor
             speed*=-1;
         }
     }
-    public void decrementPlayersHealth() {
-        if (force.canSee(Player.class, this)) {
-            Player.setHealth(Player.getHealth()-0.5);
-        }
-    }
+
 }
