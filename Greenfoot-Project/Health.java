@@ -23,15 +23,13 @@ public class Health extends Player
      */
     public void act() 
     {
+        decrementHealth();
         setHealth();
-        
     }    
-    public Health()
-    {
+    public Health(){
         setImage(HealthFull);
     }
-    public void setHealth()
-    {
+    public void setHealth(){
         if (health==2.5)
         {
             setImage(Health2_5);
@@ -57,19 +55,19 @@ public class Health extends Player
             System.exit(0);
         }
     }
-    public void decrementHealth()
-    {
+    public void decrementHealth(){
         Actor enemy = getOneObjectAtOffset(0, 0, Enemy.class);
-        if (enemy!=null)
+        if (force.canSee(Enemy.class,this))
         {
             health-=0.5;
             System.out.println("Decremented health");
         }
         
     }
-    public double getHealth()
-    {
+    public double getHealth(){
         return health;
     }
-    
+    public void setHealth(double hlth) {
+        health = hlth;
+    }
 }

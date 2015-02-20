@@ -10,4 +10,6 @@ comment3.params=
 comment3.target=void\ decrementHealth()
 comment4.params=
 comment4.target=double\ getHealth()
-numComments=5
+comment5.params=hlth
+comment5.target=void\ setHealth(double)
+numComments=6
