@@ -52,7 +52,7 @@ public class Enemy extends BetterActor
     }
     public void decrementPlayersHealth() {
         if (force.canSee(Player.class, this)) {
-            Player.setHealth(Player.getHealth()-0.5);
+            Health.setHealth(Health.getHealth()-0.5);
         }
     }
     public void enemyAnimation() { //Animates the enemy's movement
