@@ -104,6 +104,8 @@ public class GameWorld extends World
         addObject(new Diamond(), 900, 460);
         addObject(new Diamond(), 36, 260);
         addObject(new Diamond(), 532, 410);
+        addObject(new Scorekeeper(), 25, 50);
+        addObject(new Health(), 900, 50);
         Exit.setText("Level 1 Complete");
     }
     public void level2() {
@@ -151,9 +153,12 @@ public class GameWorld extends World
         addObject(new Enemy(), 730, 222);
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Player(), 57, 574);
+        addObject(new Health(), 900, 50);
         Exit.setText("Level 2 Complete");
     }
     public void level3() { //Object placement for level 3
+        addObject(new Scorekeeper(), 25, 50);
+        addObject(new Health(), 900, 50);
         addObject(new Platform(), 36, 588);
         for (int i=1; i<5; i++) {
             addObject(new Platform(), 36+(i*width), 588-(i*height/2));
