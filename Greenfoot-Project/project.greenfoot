@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sat Feb 21 16:42:24 EST 2015
+#Sat Feb 21 16:52:01 EST 2015
 target16.name=Platform
 dependency35.to=Health
 target2.name=Bullet
@@ -31,12 +31,12 @@ target1.typeParameters=
 class.Exit.image=bricks3.5.png
 dependency39.type=UsesDependency
 dependency36.from=Health
-target10.editor.y=23
-target10.editor.x=0
+target10.editor.y=-9
+target10.editor.x=-9
 class.Enemies.image=man01.png
 dependency2.to=Force
 target6.naviview.expanded=true
-target6.editor.width=1280
+target6.editor.width=1932
 dependency1.type=UsesDependency
 target16.y=70
 dependency41.type=UsesDependency
@@ -91,8 +91,8 @@ target7.typeParameters=
 dependency26.to=Player
 target8.height=50
 target16.editor.width=1280
-mainWindow.y=23
-mainWindow.x=0
+mainWindow.y=-9
+mainWindow.x=-9
 target12.showInterface=false
 target3.showInterface=false
 class.Level1.superclass=GameWorld
