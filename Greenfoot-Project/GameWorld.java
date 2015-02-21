@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class GameWorld extends World
 {
-    private static int level = 1;
+    private static int level = 0;
     GreenfootSound theme = new GreenfootSound("theme.mp3");
     /**
      * Constructor for objects of class GameWorld.
@@ -30,15 +30,15 @@ public class GameWorld extends World
         List objects = getObjects(null);
         removeObjects(objects); //Removes all objects from the world before instantiating the next level's objects
         switch (level) { //Determines which level to build for the player
-            case 1:
-                level1();
+            case 0:
+                tutorial();
                 break;
             default:
                 end();
                 break;
         }
     }
-    public void level1() { //Object placement for Level 1
+    public void tutorial() { //Object placement for Level 1
         addObject(new Tutorial(), 300, 300);
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
@@ -50,7 +50,7 @@ public class GameWorld extends World
         addObject(new Diamond(), 470, 405);
         addObject(new Diamond(), 663, 359);
         addObject(new Player(), 57, 574);
-        Exit.setText("Level 1 Complete");
+        Exit.setText("Tutorial Complete");
     }
     public void end() { //The game's end screen
         showText("You Won!", getWidth()/2, getHeight()/2);
