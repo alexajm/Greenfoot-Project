@@ -52,6 +52,7 @@ public class Health extends Player
         }
         else if (health==0)
         {
+            setImage(transparent);
             Greenfoot.playSound("TriageAtDawn.mp3");
             ((GameWorld)getWorld()).fadeWorld();
             /*try {

@@ -21,6 +21,10 @@ public class GameWorld extends World
     }
     public void act() {
         theme.playLoop();
+        if (Health.getHealth()==0)
+        {
+            theme.setVolume(0);
+        }
     }
     public void changeLevel() { //Manages game's levels and changes between them
         List objects = getObjects(null);

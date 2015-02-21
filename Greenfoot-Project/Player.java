@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends BetterActor
 {
-    Force force = new Force();
-    final double pi = Math.PI;
-    int reloadTime = 10;
-   
+    private Force force = new Force();
+    private final double pi = Math.PI;
+    private int reloadTime = 10;
+    private int count=0;
     
     /**
      * Act - do whatever the TestMan wants to do. This method is called whenever
@@ -77,10 +77,10 @@ public class Player extends BetterActor
     }
     public void decrementHealth(){
         Actor enemy = betterGetOneObjectAtOffset(0, 0, Enemy.class);
-        if (enemy!=null)
+        if (enemy!=null && (count==0 || count%10==0))
         {
             Health.setHealth(Health.getHealth()-0.5);
-            System.out.println("Decremented health");
         }
+        count++;
     }
 }
