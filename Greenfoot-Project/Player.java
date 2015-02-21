@@ -52,11 +52,9 @@ public class Player extends BetterActor
             move(5);
         if (Greenfoot.isKeyDown("W") && (getY()>=getWorld().getHeight()-height || platform!=null)) { //Makes player jump
             force.addVectorInDirection(90, -15.0);
-            System.out.println("Up detected");
         }
         if (Greenfoot.isKeyDown("S")) { //Stops unwanted sideways movement that has happens when there's an error in the past
             force.setXComp(0);
-            System.out.println("Down detected");
         }
         if (Greenfoot.isKeyDown("Left") && Scorekeeper.getAmmo()>0 && reloadTime>=10) { //Fires bullet left
             getWorld().addObject(new Bullet(180), getX()-widthLeft, getY());

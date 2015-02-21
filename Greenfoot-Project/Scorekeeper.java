@@ -19,7 +19,7 @@ public class Scorekeeper extends BetterActor
     {
         setScore();
     }
-    public Scorekeeper() { //Constructor makes the scorekeeper invisible until player has one or more diamonds
+    public Scorekeeper() {
     }
     public static void incrementDiamonds() { //Increments the number of diamonds the player has collected
         numDiamonds++;
@@ -31,13 +31,25 @@ public class Scorekeeper extends BetterActor
         ammo--;
     }
     public void setScore() { //Changes the score to reflect the number of diamonds collected so far
-        getWorld().showText(Integer.toString(numDiamonds), 55, 27);
-        getWorld().showText(Integer.toString(ammo), 55, 75);
+        if (numDiamonds>=0)
+            getWorld().showText(Integer.toString(numDiamonds), 55, 27);
+        else
+            getWorld().showText("", 55, 27);
+        if (numDiamonds>=0)
+            getWorld().showText(Integer.toString(ammo), 55, 75);
+        else
+            getWorld().showText("", 55, 75);     
     }
     public static int getScore() { //Returns the number of diamonds the player has collected
         return numDiamonds;
     }
     public static int getAmmo() { //Returns the amount of ammo the player has
         return ammo;
+    }
+    public static void setDiamonds(int diamonds) { //Sets the number of diamonds the player has
+        numDiamonds = diamonds;
+    }
+    public static void setAmmo(int ammunition) { //Sets the amount of ammo the player has
+        ammo = ammunition;
     }
 }
