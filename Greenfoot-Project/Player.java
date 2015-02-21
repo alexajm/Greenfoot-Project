@@ -12,7 +12,8 @@ public class Player extends BetterActor
     private final double pi = Math.PI;
     private int reloadTime = 10;
     private int count=0;
-    
+    GreenfootSound cry = new GreenfootSound("cry.wav");
+    GreenfootSound punch = new GreenfootSound("punch.wav");
     /**
      * Act - do whatever the TestMan wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -76,10 +77,13 @@ public class Player extends BetterActor
         return Scorekeeper.getScore();
     }
     public void decrementHealth(){
+        int randomNum = Greenfoot.getRandomNumber(2);
         Actor enemy = betterGetOneObjectAtOffset(0, 0, Enemy.class);
         if (enemy!=null && (count==0 || count%10==0))
         {
             Health.setHealth(Health.getHealth()-0.5);
+            punch.play();
+            cry.play();
         }
         count++;
     }
