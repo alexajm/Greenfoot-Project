@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class GameWorld extends World
 {
-    private static int level = 1;
+    private static int level = 0;
     GreenfootSound theme = new GreenfootSound("theme.mp3");
     /**
      * Constructor for objects of class GameWorld.
@@ -35,6 +35,9 @@ public class GameWorld extends World
                 break;
             case 1:
                 level1();
+                break;
+            case 2:
+                level2();
                 break;
             default:
                 end();
@@ -95,6 +98,54 @@ public class GameWorld extends World
         addObject(new Diamond(), 900, 460);
         addObject(new Diamond(), 36, 260);
         addObject(new Diamond(), 532, 410);
+        Exit.setText("Level 1 Complete");
+    }
+    public void level2() {
+        for (int i=0; i<=5; i++) {
+            addObject(new Platform(), 36+72*i, 500);
+            addObject(new Platform(), 36+72*i, 330);
+            addObject(new Water(), 36+72*i, 320);
+        }
+        for (int i=0; i<=1; i++) {
+            addObject(new Water(), getWidth()-36-72*i, 490);
+            addObject(new Platform(), getWidth()-36-72*2-72*i, 490);
+        }
+        for (int i=0; i<=5; i++) {
+            addObject(new Platform(), getWidth()-36-72*i, 500);
+        }
+        addObject(new Platform(), 460, 588);
+        addObject(new Platform(), 550, 510);
+        addObject(new Platform(), 460, 432);
+        addObject(new Platform(), 550, 344);
+        addObject(new Platform(), 460, 256);
+        addObject(new Exit(), 550, 168);
+        for (int i=0; i<=13; i++) {
+            addObject(new Platform(), 660, 400-24*i);
+        }
+        addObject(new Platform(), 930, 440);
+        addObject(new Platform(), 830, 350);
+        addObject(new Platform(), 730, 260);
+        addObject(new Platform(), 830, 170);
+        addObject(new Platform(), 930, 80);
+        addObject(new Platform(), 730, 80);
+        for (int i=0; i<=2; i++) {
+            addObject(new Platform(), 36+144*i, 280);
+        }
+        for (int i=0; i<=4; i++) {
+            addObject(new Platform(), 658-72*i, 80);
+        }
+        addObject(new Platform(), 260, 100);
+        addObject(new Platform(), 150, 120);
+        addObject(new Diamond(), 150, 70);
+        addObject(new Diamond(), 38, 415);
+        addObject(new Diamond(), 932, 30);
+        addObject(new Enemy(), 38, 415);
+        addObject(new Enemy(), 932, 30);
+        addObject(new Enemy(), 259, 58);
+        addObject(new Enemy(), 730, 222);
+        addObject(new Scorekeeper(), 25, 50);
+        addObject(new Player(), 57, 574);
+        Exit.setText("Level 2 Complete");
     }
     public void end() { //The game's end screen
         showText("You Won!", getWidth()/2, getHeight()/2);
