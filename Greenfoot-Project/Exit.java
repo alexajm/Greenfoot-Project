@@ -22,6 +22,7 @@ public class Exit extends Platform
     private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, -getImage().getHeight()/2, Player.class); //Looks for players standing on top of the block
         if (player!=null && Scorekeeper.getScore()>=3) { //If there's a player with a score of three or more there, they advance one level
+            Greenfoot.playSound("heavy.mp3");
             getWorld().showText(exitText, getWorld().getWidth()/2, getWorld().getHeight()/2);
             Greenfoot.delay(100);
             GameWorld.incrementLevel();

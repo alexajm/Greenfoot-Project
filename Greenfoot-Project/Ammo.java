@@ -27,6 +27,7 @@ public class Ammo extends BetterActor
     private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, 0, Player.class);
         if (player!=null) { //If there's a player touching the ammo, the score is incremented and the ammo is removed
+            Greenfoot.playSound("reload.mp3");
             Scorekeeper.incrementAmmo();
             getWorld().removeObject(this);
         }

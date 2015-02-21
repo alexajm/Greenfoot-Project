@@ -28,6 +28,7 @@ public class Diamond extends BetterActor
         Actor player = (Actor) getOneObjectAtOffset(0, 0, Player.class);
         if (player!=null) { //If there's a player touching the diamond, the score is incremented and the diamond is removed
             Scorekeeper.incrementDiamonds();
+            Greenfoot.playSound("smw_coin.wav");
             getWorld().removeObject(this);
         }
     }

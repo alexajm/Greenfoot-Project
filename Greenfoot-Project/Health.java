@@ -29,7 +29,7 @@ public class Health extends Player
         setImage(HealthFull);
     }
     public void displayHealth(){
-        System.out.println(health);
+        //System.out.println(health);
         if (health==2.5)
         {
             setImage(Health2_5);
@@ -52,6 +52,10 @@ public class Health extends Player
         }
         else if (health==0)
         {
+            Greenfoot.playSound("TriageAtDawn.mp3");
+            try {
+                Thread.sleep(8250);
+            } catch (InterruptedException e) {}
             System.exit(0);
         }
     }

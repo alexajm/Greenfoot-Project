@@ -60,11 +60,13 @@ public class Player extends BetterActor
         }
         if (Greenfoot.isKeyDown("Left") && Scorekeeper.getAmmo()>0 && reloadTime>=10) { //Fires bullet left
             getWorld().addObject(new Bullet(180), getX()-widthLeft, getY());
+            Greenfoot.playSound("fire.mp3");
             Scorekeeper.decrementAmmo();
             reloadTime=0;
         }
         if (Greenfoot.isKeyDown("Right") && Scorekeeper.getAmmo()>0 && reloadTime>=10) { //Fires bullet right
             getWorld().addObject(new Bullet(0), getX()+widthRight, getY());
+            Greenfoot.playSound("fire.mp3");
             Scorekeeper.decrementAmmo();
             reloadTime=0;
         }
