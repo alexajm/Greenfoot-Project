@@ -10,7 +10,7 @@ import java.util.*;
 public class GameWorld extends World
 {
     private static int level = 1;
-    
+    GreenfootSound theme = new GreenfootSound("theme.mp3");
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -18,6 +18,9 @@ public class GameWorld extends World
     public GameWorld() {    
         super(1000, 600, 1); 
         changeLevel();
+    }
+    public void act() {
+        theme.playLoop();
     }
     public void changeLevel() { //Manages game's levels and changes between them
         List objects = getObjects(null);
