@@ -31,7 +31,7 @@ public class Enemy extends BetterActor
     public Enemy() {
         rightExcess = 0;
         leftExcess = 0;
-        botExcess = 4;
+        botExcess = 2;
         topExcess = 0;
     }
     public void enemyMovement() { //Describes how the enemy moves

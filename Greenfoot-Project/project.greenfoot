@@ -1,5 +1,9 @@
 #Greenfoot properties
+<<<<<<< Updated upstream
 #Sat Feb 21 14:36:28 EST 2015
+=======
+#Sat Feb 21 14:42:14 EST 2015
+>>>>>>> Stashed changes
 target16.name=Platform
 dependency35.to=Health
 target2.name=Bullet
@@ -31,6 +35,7 @@ target1.typeParameters=
 class.Exit.image=brick.jpg
 dependency39.type=UsesDependency
 dependency36.from=Health
+<<<<<<< Updated upstream
 target10.editor.y=-9
 target10.editor.x=-9
 class.Enemies.image=man01.png
@@ -39,6 +44,17 @@ target6.naviview.expanded=true
 target6.editor.width=1938
 dependency1.type=UsesDependency
 target16.y=70
+=======
+target10.editor.y=23
+target10.editor.x=0
+class.Enemies.image=man01.png
+dependency2.to=Force
+target6.naviview.expanded=true
+target6.editor.width=1280
+dependency1.type=UsesDependency
+target16.y=70
+dependency41.type=UsesDependency
+>>>>>>> Stashed changes
 target16.x=70
 class.TestMan.superclass=BetterActor
 target14.editor.width=1280
@@ -90,12 +106,21 @@ target7.typeParameters=
 target8.height=50
 dependency26.to=Player
 target16.editor.width=1280
+<<<<<<< Updated upstream
 mainWindow.y=-9
 mainWindow.x=-9
 target3.showInterface=false
 target12.showInterface=false
 class.Level1.superclass=GameWorld
 target17.typeParameters=
+=======
+mainWindow.y=23
+mainWindow.x=0
+target3.showInterface=false
+target12.showInterface=false
+target17.typeParameters=
+class.Level1.superclass=GameWorld
+>>>>>>> Stashed changes
 dependency3.to=Platform
 target1.width=80
 dependency40.type=UsesDependency
@@ -112,6 +137,10 @@ target2.naviview.expanded=true
 target2.showInterface=false
 target11.showInterface=false
 target7.name=Health
+<<<<<<< Updated upstream
+=======
+dependency41.to=GameWorld
+>>>>>>> Stashed changes
 dependency16.to=Force
 target16.naviview.expanded=true
 target1.editor.y=23
@@ -193,7 +222,11 @@ target2.y=370
 target18.editor.height=712
 target10.width=100
 target2.x=200
+<<<<<<< Updated upstream
 target10.editor.height=1098
+=======
+target10.editor.height=712
+>>>>>>> Stashed changes
 target11.type=ClassTarget
 class.GameWorld.image=Background.png
 dependency22.type=UsesDependency
@@ -218,8 +251,13 @@ target9.editor.y=23
 target9.editor.x=0
 dependency5.type=UsesDependency
 dependency2.from=Player
+<<<<<<< Updated upstream
 class.Diamond.image=Diamond2.png
 target17.width=80
+=======
+target17.width=80
+class.Diamond.image=Diamond2.png
+>>>>>>> Stashed changes
 dependency9.from=Enemy
 target10.height=50
 dependency28.to=GameWorld
@@ -228,7 +266,11 @@ target2.editor.width=1280
 target3.typeParameters=
 target13.width=80
 dependency5.to=Player
+<<<<<<< Updated upstream
 target10.editor.width=1938
+=======
+target10.editor.width=1280
+>>>>>>> Stashed changes
 target12.name=Force
 target13.typeParameters=
 target5.name=BetterActor
@@ -244,7 +286,11 @@ target14.x=10
 target10.type=ClassTarget
 dependency18.to=Scorekeeper
 dependency21.type=UsesDependency
+<<<<<<< Updated upstream
 package.numDependencies=40
+=======
+package.numDependencies=41
+>>>>>>> Stashed changes
 target17.type=ClassTarget
 dependency28.type=UsesDependency
 dependency25.from=GameWorld
@@ -271,6 +317,10 @@ class.Scorekeeper.superclass=BetterActor
 target4.editor.width=1280
 dependency4.type=UsesDependency
 dependency1.from=Diamond
+<<<<<<< Updated upstream
+=======
+dependency41.from=Health
+>>>>>>> Stashed changes
 dependency33.to=Scorekeeper
 dependency8.from=Enemy
 target4.naviview.expanded=true
@@ -327,6 +377,7 @@ dependency13.to=Enemy
 dependency3.type=UsesDependency
 target8.editor.height=712
 target15.editor.width=1280
+<<<<<<< Updated upstream
 dependency40.from=Health
 dependency7.from=Exit
 target6.width=80
@@ -335,6 +386,16 @@ target6.editor.y=-9
 mainWindow.height=1098
 target9.naviview.expanded=true
 target6.editor.x=-9
+=======
+dependency40.from=Player
+dependency7.from=Exit
+target6.width=80
+class.Player.image=man01.png
+target6.editor.y=23
+mainWindow.height=712
+target9.naviview.expanded=true
+target6.editor.x=0
+>>>>>>> Stashed changes
 class.Bullet.image=bullet.png
 class.End.superclass=GameWorld
 target5.showInterface=false
@@ -372,7 +433,11 @@ target15.editor.x=0
 target9.width=80
 target8.type=ClassTarget
 class.Platform.superclass=BetterActor
+<<<<<<< Updated upstream
 target6.editor.height=1098
+=======
+target6.editor.height=712
+>>>>>>> Stashed changes
 target15.editor.height=712
 dependency1.to=Force
 dependency33.type=UsesDependency
@@ -406,5 +471,9 @@ dependency14.to=Bullet
 target18.typeParameters=
 target1.height=50
 target4.typeParameters=
+<<<<<<< Updated upstream
 mainWindow.width=1938
+=======
+mainWindow.width=1280
+>>>>>>> Stashed changes
 =\=\=\=\=\=\=
