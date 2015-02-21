@@ -53,9 +53,10 @@ public class Health extends Player
         else if (health==0)
         {
             Greenfoot.playSound("TriageAtDawn.mp3");
-            try {
-                Thread.sleep(8250);
-            } catch (InterruptedException e) {}
+            ((GameWorld)getWorld()).fadeWorld();
+            /*try {
+                Thread.sleep(6000);
+            } catch (InterruptedException e) {}*/
             System.exit(0);
         }
     }

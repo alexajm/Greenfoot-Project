@@ -58,4 +58,16 @@ public class GameWorld extends World
     public static int getLevel() { //Returns the level the player is on
         return level;
     }
+    public void fadeWorld() { //Fades the world to white
+        List objects = getObjects(null);
+        Scorekeeper.setDiamonds(-1);
+        Scorekeeper.setAmmo(-1);
+        for (int i=255; i>=0; i--) { //Cycles through all of the levels of transparency
+            for (int j=0; j<objects.size(); j++) { //Cycles through all the objects in the world
+                ((Actor)objects.get(j)).getImage().setTransparency(i);
+            }
+            getBackground().setTransparency(i);
+            Greenfoot.delay(2); //Makes the process more gradual
+        }
+    }
 }

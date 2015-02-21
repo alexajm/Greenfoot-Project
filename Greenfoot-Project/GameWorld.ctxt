@@ -11,7 +11,13 @@ comment3.target=void\ level1()
 comment4.params=
 comment4.target=void\ end()
 comment5.params=
+<<<<<<< HEAD
 comment5.target=void\ incrementLevel()
 comment6.params=
 comment6.target=int\ getLevel()
+=======
+comment5.target=int\ getLevel()
+comment6.params=
+comment6.target=void\ fadeWorld()
+>>>>>>> 1f83154adbec0a41bf8fc6703770d90006865c75
 numComments=7
