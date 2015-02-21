@@ -9,8 +9,10 @@ import java.util.*;
  */
 public class GameWorld extends World
 {
-    private static int level = 1;
+    private static int level = 3;
     GreenfootSound theme = new GreenfootSound("theme.mp3");
+    int height = 24;
+    int width = 72;
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -36,6 +38,9 @@ public class GameWorld extends World
             case 1:
                 level1();
                 break;
+            case 3:
+                level3();
+                break;
             default:
                 end();
                 break;
@@ -56,8 +61,6 @@ public class GameWorld extends World
         Exit.setText("Tutorial Complete");
     }
     public void level1() { //Object placement for Level 1
-        int height = 24;
-        int width = 72;
         int pheight1 = 250;
         addObject(new Player(), 91, 531);
         addObject(new Platform(), 100, 575);
@@ -96,6 +99,26 @@ public class GameWorld extends World
         addObject(new Diamond(), 36, 260);
         addObject(new Diamond(), 532, 410);
     }
+    public void level3() { //Object placement for level 3
+        addObject(new Platform(), 36, 588);
+        for (int i=1; i<5; i++) {
+            addObject(new Platform(), 36+(i*width), 588-(i*height/2));
+            addObject(new Platform(), 330+i*width, 100);
+        }
+        for (int i=1; i<22; i++) {
+             addObject(new Platform(), 618, 100+i*height);
+        }
+        addObject(new Platform(), 450, 500);
+        addObject(new Platform(), 400, 390);
+        addObject(new Platform(), 350, 280);
+        addObject(new Platform(), 250, 390);
+        addObject(new Platform(), 175, 280);
+        addObject(new Platform(), 100, 350);
+        addObject(new Platform(), 285, 170);
+    }
+    
+
+    
     public void end() { //The game's end screen
         showText("You Won!", getWidth()/2, getHeight()/2);
         Greenfoot.stop();
