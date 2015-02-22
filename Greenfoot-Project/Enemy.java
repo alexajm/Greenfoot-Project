@@ -36,14 +36,20 @@ public class Enemy extends BetterActor
     }
     public void enemyMovement() { //Describes how the enemy moves
         move(speed);
-        int widthLeft = getImage().getWidth()/2 - leftExcess;
-        int widthRight = getImage().getWidth()/2 - rightExcess;
-        int height = getImage().getHeight() - botExcess;
-        Actor platformLeft = getOneObjectAtOffset(-widthLeft, height, Platform.class); //Looks for platform below and to the left
-        Actor platformRight = getOneObjectAtOffset(widthRight, height, Platform.class); //Looks for platform below and to the right
+        int widthLeft = getImage().getWidth()/2 - 10;
+        int widthRight = getImage().getWidth()/2 - 10;
+        int height = getImage().getHeight()/2 + 15;
+        Actor platformLeft = getOneObjectAtOffset(-10, height, Platform.class); //Looks for platform below and to the left
+        Actor platformRight = getOneObjectAtOffset(10, height, Platform.class); //Looks for platform below and to the right
         boolean left = platformLeft!=null;
         boolean right = platformRight!=null;
-        if (force.isTouchingWall(this) || (!(left&&right)&&(left||right))) { //If touching a wall, the enemy turns. If there's a platform below it on one
+        if (force.isTouchingWall(this)) { //If touching a wall, the enemy turns. If there's a platform below it on one
+            move(-speed);                                                    //side, but not the other, it turns as well. This uses an XOR gate.
+            speed*=-1;
+            walking1.mirrorHorizontally();
+            walking2.mirrorHorizontally();
+        }
+        if ((!(left&&right)&&(left||right))) {
             move(-speed);                                                    //side, but not the other, it turns as well. This uses an XOR gate.
             speed*=-1;
             walking1.mirrorHorizontally();
