@@ -10,11 +10,9 @@ import java.util.*;
 public class GameWorld extends World
 {
 
-<<<<<<< HEAD
+
     private static int level = 1;
-=======
-    private static int level = 2;
->>>>>>> origin/master
+
 
     
     GreenfootSound theme = new GreenfootSound("theme.mp3");
