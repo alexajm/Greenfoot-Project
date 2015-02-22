@@ -32,7 +32,7 @@ public class Player extends BetterActor
     public Player() {
         rightExcess = 16;
         leftExcess = 15;
-        botExcess = 2;
+        botExcess = 1;
         topExcess = 1;
         detectPoints.add(new Coordinate(0, -((getImage().getHeight()-topExcess-botExcess)/2)-1));
         detectPoints.add(new Coordinate(-15, -11));

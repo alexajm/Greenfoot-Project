@@ -126,17 +126,23 @@ public class Force
     public void lookForWall(BetterActor actor) { //Looks for walls the object might be colliding with and prevents it from moving through them
         double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1; //Actual width of the object taking into account whitespace in its image
         double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1; //Actual width on the object's left side
-        double heightBot = actor.getImage().getHeight()/2 - actor.botExcess - 1;
-        double heightTop = actor.getImage().getHeight()/2 - actor.topExcess - 1;
-        Actor platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
-        Actor platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
-        while (platformBotRight!=null) { //While there's a platform to its right, the object keeps being pushed left
+        double heightBot = actor.getImage().getHeight()/4 - actor.botExcess - 1;
+        double heightTop = actor.getImage().getHeight()/4 - actor.topExcess - 1;
+        Actor platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightBot, Platform.class);
+        Actor platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightBot, Platform.class);
+        Actor platformMidRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
+        Actor platformMidLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
+        while (platformBotRight!=null || platformMidRight!=null) { //While there's a platform to its right, the object keeps being pushed left
             actor.setLocation(actor.getX()-1, actor.getY());
             platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightBot, Platform.class);
+            platformMidRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
+            System.out.println("Right wall");
         }
-        while (platformBotLeft!=null) { //While there's a platform to its left, the object keeps being pushed right
+        while (platformBotLeft!=null || platformMidLeft!=null) { //While there's a platform to its left, the object keeps being pushed right
             actor.setLocation(actor.getX()+1, actor.getY());
             platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightBot, Platform.class);
+            platformMidLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
+            System.out.println("Left wall");
         }
     }
     public void lookForWall2(BetterActor actor) {
@@ -196,9 +202,11 @@ public class Force
         double heightTop = actor.getImage().getHeight()/2 - actor.topExcess - 1;
         Actor platformTopRight = actor.betterGetOneObjectAtOffset((int)widthRight, -(int)heightTop, Platform.class);
         Actor platformTopLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, -(int)heightTop, Platform.class);
+        Actor platformMidRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
+        Actor platformMidLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
         Actor platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightBot, Platform.class);
         Actor platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightBot, Platform.class);
-        if (platformBotRight==null && platformBotLeft==null && platformTopRight==null && platformTopLeft==null && !actor.isAtEdge())
+        if (platformBotRight==null && platformBotLeft==null && platformMidRight==null && platformMidLeft==null && platformTopRight==null && platformTopLeft==null && !actor.isAtEdge())
             result = false;
         return result;
     }
