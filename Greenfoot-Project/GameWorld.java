@@ -10,7 +10,7 @@ import java.util.*;
 public class GameWorld extends World
 {
 
-    private static int level = 3;
+    private static int level = 1;
 
     
     GreenfootSound theme = new GreenfootSound("theme.mp3");
