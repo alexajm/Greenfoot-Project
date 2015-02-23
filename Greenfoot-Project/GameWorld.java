@@ -9,14 +9,8 @@ import java.util.*;
  */
 public class GameWorld extends World
 {
-<<<<<<< HEAD
-    private static int level = 3;
-    
-    GreenfootSound theme = new GreenfootSound("theme.mp3");
-=======
     private static int level = 1;
     GreenfootSound theme = new GreenfootSound("theme.mp3"); //Game's main theme
->>>>>>> origin/master
     int height = 24;
     int width = 72;
     /**
@@ -114,14 +108,11 @@ public class GameWorld extends World
         addObject(new Diamond(), 900, 460);
         addObject(new Diamond(), 36, 260);
         addObject(new Diamond(), 532, 410);
-<<<<<<< HEAD
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
         addObject(new Enemy(), 500, pheight1-38);
         addObject(new Enemy(), 825, 460);
         addObject(new Enemy(), 575, pheight1-175);
-=======
->>>>>>> origin/master
         Exit.setText("Level 1 Complete");
     }
     public void level2() { //Object placements for Level 2
@@ -170,14 +161,11 @@ public class GameWorld extends World
         addObject(new Player(), 57, 574);
         Exit.setText("Level 2 Complete");
     }
-<<<<<<< HEAD
     public void level3() { //Object placement for level 3
+       
         addObject(new Player(), 36, 550);
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
-=======
-    public void level3() { //Object placement for Level 3
->>>>>>> origin/master
         addObject(new Platform(), 36, 588);
         for (int i=1; i<5; i++) {
             addObject(new Platform(), 36+(i*width), 588-(i*height/2));
