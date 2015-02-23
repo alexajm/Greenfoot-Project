@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Scorekeeper extends BetterActor
 {
     private static int numDiamonds = 0;
-    private static int ammo = 3;
+    private static int ammo = 0;
     
     /**
      * Act - do whatever the Scorekeeper wants to do. This method is called whenever

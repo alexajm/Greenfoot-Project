@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Health extends Player
+public class Health extends BetterActor
 {
     private GreenfootImage transparent = new GreenfootImage("transparent.png");
     private GreenfootImage HealthFull = new GreenfootImage("HealthFull.png");
@@ -15,6 +15,7 @@ public class Health extends Player
     private GreenfootImage Health1_5 = new GreenfootImage("Health1.5.png");
     private GreenfootImage Health1 = new GreenfootImage("Health1.png");
     private GreenfootImage Health0_5 = new GreenfootImage("Health0.5.png");
+    GreenfootSound death = new GreenfootSound("TriageAtDawn.mp3");
     private static double health = 3.0;
     
     /**
@@ -28,8 +29,7 @@ public class Health extends Player
     public Health(){
         setImage(HealthFull);
     }
-    public void displayHealth(){
-        //System.out.println(health);
+    public void displayHealth(){ //Changes the image to reflect the player's health
         if (health==2.5)
         {
             setImage(Health2_5);
@@ -53,19 +53,22 @@ public class Health extends Player
         else if (health==0)
         {
             setImage(transparent);
-            Greenfoot.playSound("TriageAtDawn.mp3");
-            ((GameWorld)getWorld()).fadeWorld();
-            /*try {
-                Thread.sleep(6000);
-            } catch (InterruptedException e) {}*/
-            System.exit(0);
+            getWorld().showText("You Died", getWorld().getWidth()/2, getWorld().getHeight()/2);
+            ((GameWorld) getWorld()).theme.setVolume(0);
+            death.play();
+            ((GameWorld)getWorld()).fadeWorld(); //Sad death scene occurs
+            death.stop();
+            ((GameWorld) getWorld()).theme.setVolume(100);
+            getWorld().getBackground().setTransparency(255);
+            if (Scorekeeper.getAmmo()>0) //Player loses a bullet if they die
+                Scorekeeper.decrementAmmo();
+            ((GameWorld) getWorld()).changeLevel();
         }
     }
-    
-    public static double getHealth(){
+    public static double getHealth(){ //Returns the player's health
         return health;
     }
-    public static void setHealth(double hlth) {
+    public static void setHealth(double hlth) { //Sets the player's health
         health = hlth;
     }
 }
