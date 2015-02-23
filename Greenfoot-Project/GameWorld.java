@@ -9,9 +9,10 @@ import java.util.*;
  */
 public class GameWorld extends World
 {
-    private static int level = 4;
+    private static int level = 0;
     GreenfootSound theme = new GreenfootSound("theme.mp3"); //Game's main theme
     GreenfootSound themeRandom = new GreenfootSound("randomTheme.wav"); //A random theme
+    GreenfootSound theme3 = new GreenfootSound("secret.wav"); //A theme for the 3rd level
     private int randomNum = Greenfoot.getRandomNumber(4);
     int height = 24;
     int width = 72;
@@ -33,6 +34,8 @@ public class GameWorld extends World
         if (Health.getHealth()==0)
         {
             theme.setVolume(0);
+            themeRandom.setVolume(0);
+            theme3.setVolume(0);
         }
     }
     public void changeLevel() { //Manages game's levels and changes between them
@@ -57,6 +60,9 @@ public class GameWorld extends World
                 break;
             case 3:
                 level3();
+                 theme.setVolume(0);
+                 themeRandom.setVolume(0);
+                 theme3.playLoop();
                 break;
             default:
                 end();
@@ -201,25 +207,6 @@ public class GameWorld extends World
         addObject(new Enemy(), 600, 60);
         addObject(new Enemy(), 820, 160);
         Exit.setText("Level 3 Complete");
-    }
-    public void level4() {
-        for (int i=0; i<=4; i++) {
-            addObject(new Platform(), 36, 550-120*i);
-        }
-        for (int i=0; i<=3; i++) {
-            addObject(new Platform(), 190, 500-120*i);
-        }
-        for (int i=0; i<=15; i++) {
-            addObject(new Platform(), 262, getHeight()-12-24*i);
-        }
-        for (int i=0; i<=15; i++) {
-            addObject(new Platform(), 262+72*i, 140);
-        }
-        addObject(new Platform(), 334, 500);
-        addObject(new Platform(), 860, 500);
-        addObject(new Platform(), 430, 230);
-        addObject(new Platform(), 560, 290);
-        addObject(new Exit(), 500, 80);
     }
     public void end() { //The game's end screen
         showText("You Won!", getWidth()/2, getHeight()/2);
