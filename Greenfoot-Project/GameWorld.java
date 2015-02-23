@@ -9,8 +9,10 @@ import java.util.*;
  */
 public class GameWorld extends World
 {
-    private static int level = 1;
+    private static int level = 0;
     GreenfootSound theme = new GreenfootSound("theme.mp3"); //Game's main theme
+    GreenfootSound themeRandom = new GreenfootSound("randomTheme.wav"); //A random theme
+    private int randomNum = Greenfoot.getRandomNumber(4);
     int height = 24;
     int width = 72;
     /**
@@ -22,7 +24,12 @@ public class GameWorld extends World
         changeLevel();
     }
     public void act() {
-        theme.playLoop();
+        if (randomNum==3) {
+            themeRandom.playLoop();
+        }
+        else {
+            theme.playLoop();
+        }
         if (Health.getHealth()==0)
         {
             theme.setVolume(0);
@@ -104,7 +111,7 @@ public class GameWorld extends World
         addObject(new Platform(), 420+width*2, 120);
         addObject(new Platform(), 420+width*3, 120);
         addObject(new Platform(),420+width*4, 120);
-        addObject(new Exit(), 875, 250);
+        addObject(new Exit(), 860, 250);
         addObject(new Diamond(), 900, 460);
         addObject(new Diamond(), 36, 260);
         addObject(new Diamond(), 532, 410);

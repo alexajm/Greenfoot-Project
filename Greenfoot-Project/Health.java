@@ -55,6 +55,7 @@ public class Health extends BetterActor
             setImage(transparent);
             getWorld().showText("You Died", getWorld().getWidth()/2, getWorld().getHeight()/2);
             ((GameWorld) getWorld()).theme.setVolume(0);
+            ((GameWorld) getWorld()).themeRandom.setVolume(0);
             death.play();
             ((GameWorld)getWorld()).fadeWorld(); //Sad death scene occurs
             death.stop();
