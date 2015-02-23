@@ -9,9 +9,14 @@ import java.util.*;
  */
 public class GameWorld extends World
 {
+<<<<<<< HEAD
     private static int level = 3;
     
     GreenfootSound theme = new GreenfootSound("theme.mp3");
+=======
+    private static int level = 1;
+    GreenfootSound theme = new GreenfootSound("theme.mp3"); //Game's main theme
+>>>>>>> origin/master
     int height = 24;
     int width = 72;
     /**
@@ -32,6 +37,13 @@ public class GameWorld extends World
     public void changeLevel() { //Manages game's levels and changes between them
         List objects = getObjects(null);
         removeObjects(objects); //Removes all objects from the world before instantiating the next level's objects
+        showText("", getWidth()/2, getHeight()/2); //Removes any text in the center
+        addObject(new Health(), 900, 50);
+        Health.setHealth(3);
+        addObject(new Scorekeeper(), 25, 50);
+        Scorekeeper.setDiamonds(0);
+        for (int i=0; i<=2; i++) //Randomly places three ammo drops
+            addObject(new Ammo(), Greenfoot.getRandomNumber(1000), Greenfoot.getRandomNumber(600));
         switch (level) { //Determines which level to build for the player
             case 0:
                 tutorial();
@@ -50,7 +62,7 @@ public class GameWorld extends World
                 break;
         }
     }
-    public void tutorial() { //Object placement for Level 1
+    public void tutorial() { //Object placement for the tutorial
         addObject(new Tutorial(), 300, 300);
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
@@ -102,19 +114,21 @@ public class GameWorld extends World
         addObject(new Diamond(), 900, 460);
         addObject(new Diamond(), 36, 260);
         addObject(new Diamond(), 532, 410);
+<<<<<<< HEAD
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
         addObject(new Enemy(), 500, pheight1-38);
         addObject(new Enemy(), 825, 460);
         addObject(new Enemy(), 575, pheight1-175);
+=======
+>>>>>>> origin/master
         Exit.setText("Level 1 Complete");
     }
-    public void level2() {
-        addObject(new Health(), 900, 50);
+    public void level2() { //Object placements for Level 2
         for (int i=0; i<=5; i++) {
+            addObject(new Water(), 36+72*i, 320);
             addObject(new Platform(), 36+72*i, 500);
             addObject(new Platform(), 36+72*i, 330);
-            addObject(new Water(), 36+72*i, 320);
         }
         for (int i=0; i<=1; i++) {
             addObject(new Water(), getWidth()-36-72*i, 490);
@@ -153,14 +167,17 @@ public class GameWorld extends World
         addObject(new Enemy(), 932, 30);
         addObject(new Enemy(), 259, 58);
         addObject(new Enemy(), 730, 222);
-        addObject(new Scorekeeper(), 25, 50);
         addObject(new Player(), 57, 574);
         Exit.setText("Level 2 Complete");
     }
+<<<<<<< HEAD
     public void level3() { //Object placement for level 3
         addObject(new Player(), 36, 550);
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
+=======
+    public void level3() { //Object placement for Level 3
+>>>>>>> origin/master
         addObject(new Platform(), 36, 588);
         for (int i=1; i<5; i++) {
             addObject(new Platform(), 36+(i*width), 588-(i*height/2));
@@ -190,9 +207,6 @@ public class GameWorld extends World
         addObject(new Enemy(), 820, 160);
         Exit.setText("Level 3 Complete");
     }
-    
-
-    
     public void end() { //The game's end screen
         showText("You Won!", getWidth()/2, getHeight()/2);
         Greenfoot.stop();
@@ -204,9 +218,9 @@ public class GameWorld extends World
         return level;
     }
     public void fadeWorld() { //Fades the world to white
+        showText("", 55, 27); //Clears text
+        showText("", 55, 75);
         List objects = getObjects(null);
-        Scorekeeper.setDiamonds(-1);
-        Scorekeeper.setAmmo(-1);
         for (int i=255; i>=0; i--) { //Cycles through all of the levels of transparency
             for (int j=0; j<objects.size(); j++) { //Cycles through all the objects in the world
                 ((Actor)objects.get(j)).getImage().setTransparency(i);

@@ -26,7 +26,7 @@ public class Diamond extends BetterActor
     }
     private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, 0, Player.class);
-        if (player!=null && !(player instanceof Health)) { //If there's a player touching the diamond, the score is incremented and the diamond is removed
+        if (player!=null) { //If there's a player touching the diamond, the score is incremented and the diamond is removed
             Scorekeeper.incrementDiamonds();
             Greenfoot.playSound("smw_coin.wav");
             getWorld().removeObject(this);
