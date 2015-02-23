@@ -55,15 +55,14 @@ public class Health extends BetterActor
             setImage(transparent);
             getWorld().showText("You Died", getWorld().getWidth()/2, getWorld().getHeight()/2);
             ((GameWorld) getWorld()).theme.setVolume(0);
-            ((GameWorld) getWorld()).themeRandom.setVolume(0);
             death.play();
-            ((GameWorld)getWorld()).fadeWorld(); //Sad death scene occurs
+            ((GameWorld)getWorld()).fadeWorld(); //Sad death scene occurs where theme is turned off and other, sadder music plays :'(
             death.stop();
             ((GameWorld) getWorld()).theme.setVolume(100);
             getWorld().getBackground().setTransparency(255);
             if (Scorekeeper.getAmmo()>0) //Player loses a bullet if they die
                 Scorekeeper.decrementAmmo();
-            ((GameWorld) getWorld()).changeLevel();
+            ((GameWorld) getWorld()).changeLevel(); //Level resets
         }
     }
     public static double getHealth(){ //Returns the player's health

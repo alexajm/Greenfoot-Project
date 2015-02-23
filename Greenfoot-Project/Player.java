@@ -11,7 +11,7 @@ public class Player extends BetterActor
     private Force force = new Force();
     private final double pi = Math.PI;
     private int reloadTime = 10;
-    private int count=0;
+    private int healthTime = 0;
     GreenfootSound cry = new GreenfootSound("cry.wav");
     GreenfootSound punch = new GreenfootSound("punch.wav");
     /**
@@ -34,13 +34,13 @@ public class Player extends BetterActor
         leftExcess = 15;
         botExcess = 1;
         topExcess = 1;
-        detectPoints.add(new Coordinate(0, -((getImage().getHeight()-topExcess-botExcess)/2)-1));
+        /*detectPoints.add(new Coordinate(0, -((getImage().getHeight()-topExcess-botExcess)/2)-1));
         detectPoints.add(new Coordinate(-15, -11));
         detectPoints.add(new Coordinate(-15, 8));
         detectPoints.add(new Coordinate(-6, 27));
         detectPoints.add(new Coordinate(15, -11));
         detectPoints.add(new Coordinate(15, 8));
-        detectPoints.add(new Coordinate(6, 27));
+        detectPoints.add(new Coordinate(6, 27));*/
     }
     public void checkKeys() { //Facilitates user-controlled movement of the character
         double height = getImage().getHeight()/2;
@@ -54,7 +54,7 @@ public class Player extends BetterActor
         if (Greenfoot.isKeyDown("W") && (getY()>=getWorld().getHeight()-height || platform!=null)) { //Makes player jump
             force.addVectorInDirection(90, -15.0);
         }
-        if (Greenfoot.isKeyDown("S")) { //Stops unwanted sideways movement that has happens when there's an error in the past
+        if (Greenfoot.isKeyDown("S")) { //Stops unwanted sideways movement that has happened when there's an error in the past
             force.setXComp(0);
         }
         if (Greenfoot.isKeyDown("Left") && Scorekeeper.getAmmo()>0 && reloadTime>=10) { //Fires bullet left
@@ -76,15 +76,15 @@ public class Player extends BetterActor
     public int getScore() { //Returns player's score
         return Scorekeeper.getScore();
     }
-    public void decrementHealth(){
-        int randomNum = Greenfoot.getRandomNumber(2);
+    public void decrementHealth(){ //Decreases the player's health
         Actor enemy = betterGetOneObjectAtOffset(0, 0, Enemy.class);
-        if (enemy!=null && (count==0 || count%10==0))
+        if (enemy!=null && healthTime>=15)
         {
             Health.setHealth(Health.getHealth()-0.5);
             punch.play();
             cry.play();
-        }
-        count++;
+            healthTime=0;
+        } else
+            healthTime++;
     }
 }

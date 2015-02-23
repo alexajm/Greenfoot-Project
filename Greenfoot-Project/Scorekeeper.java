@@ -31,7 +31,7 @@ public class Scorekeeper extends BetterActor
         ammo--;
     }
     public void setScore() { //Changes the score to reflect the number of diamonds collected so far
-        if (numDiamonds>=0)
+        if (numDiamonds>=0) //If the method is passed negative values, the scores disappear
             getWorld().showText(Integer.toString(numDiamonds), 55, 27);
         else
             getWorld().showText("", 55, 27);

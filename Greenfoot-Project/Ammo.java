@@ -26,9 +26,14 @@ public class Ammo extends BetterActor
     }
     private void checkForPlayer() { //Checks to see if touching the player
         Actor player = (Actor) getOneObjectAtOffset(0, 0, Player.class);
+        Actor water = (Actor) getOneObjectAtOffset(0, getImage().getHeight()/2, Water.class);
         if (player!=null) { //If there's a player touching the ammo, the score is incremented and the ammo is removed
             Greenfoot.playSound("reload.mp3");
             Scorekeeper.incrementAmmo();
+            getWorld().removeObject(this);
+        }
+        if (water!=null) { //If the ammo falls on the water, it disappears and respawns elsewhere
+            getWorld().addObject(new Ammo(), Greenfoot.getRandomNumber(1000), Greenfoot.getRandomNumber(600));
             getWorld().removeObject(this);
         }
     } 

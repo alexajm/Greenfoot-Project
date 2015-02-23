@@ -20,7 +20,7 @@ public class Tutorial extends BetterActor
     }  
     public Tutorial() {
     }
-    public void runTutorial() {
+    public void runTutorial() { //Runs a tutorial to teach the player how to play
         boolean complete = false;
         switch (text) {
             case 0:
@@ -29,7 +29,7 @@ public class Tutorial extends BetterActor
                     complete = true;
                 break;
             case 1:
-                getWorld().showText("Left and right arrows fire bullets", getWorld().getWidth()/2, getWorld().getHeight()/2);
+                getWorld().showText("Pick up bullets\nUse left and right arrow keys to fire them at enemies", getWorld().getWidth()/2, getWorld().getHeight()/2);
                 if (Greenfoot.isKeyDown("Left") || Greenfoot.isKeyDown("Right"))
                     complete = true;
                 break;
@@ -39,13 +39,13 @@ public class Tutorial extends BetterActor
                     complete = true;
                 break;
             case 3:
-                getWorld().showText("Stand on the red bricks to proceed to the next level", getWorld().getWidth()/2, getWorld().getHeight()/2);
+                getWorld().showText("Stand on the red bricks to proceed to the next level\nDon't touch blue water tiles", getWorld().getWidth()/2, getWorld().getHeight()/2);
                 break;
         }
         if (complete)
             text++;
     }
-    public int getText() {
+    public int getText() { //Returns which part of the tutorial the player is on
         return text;
     }
 }

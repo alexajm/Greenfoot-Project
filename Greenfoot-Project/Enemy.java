@@ -10,7 +10,6 @@ public class Enemy extends BetterActor
 {
     Force force = new Force();
     private int speed = 2;
-    private double healthEnemy = 2;
     private GreenfootImage walking1 = new GreenfootImage("Alien.Still.png");
     private GreenfootImage walking2 = new GreenfootImage("Alien.Walking.png");
     private int moveTime = 1; //Iterator for the animation of the enemy's movement
@@ -36,27 +35,19 @@ public class Enemy extends BetterActor
     }
     public void enemyMovement() { //Describes how the enemy moves
         move(speed);
-        int widthLeft = getImage().getWidth()/2 - 10;
-        int widthRight = getImage().getWidth()/2 - 10;
         int height = getImage().getHeight()/2 + 15;
         Actor platformLeft = getOneObjectAtOffset(-10, height, Platform.class); //Looks for platform below and to the left
         Actor platformRight = getOneObjectAtOffset(10, height, Platform.class); //Looks for platform below and to the right
         boolean left = platformLeft!=null;
         boolean right = platformRight!=null;
-        if (force.isTouchingWall(this)) { //If touching a wall, the enemy turns. If there's a platform below it on one
-            move(-speed);                                                    //side, but not the other, it turns as well. This uses an XOR gate.
-            speed*=-1;
-            walking1.mirrorHorizontally();
-            walking2.mirrorHorizontally();
-        }
-        if ((!(left&&right)&&(left||right))) {
+        if (force.isTouchingWall(this) || (!(left&&right)&&(left||right))) { //If touching a wall, the enemy turns. If there's a platform below it on one
             move(-speed);                                                    //side, but not the other, it turns as well. This uses an XOR gate.
             speed*=-1;
             walking1.mirrorHorizontally();
             walking2.mirrorHorizontally();
         }
     }
-    public void decrementPlayersHealth() {
+    public void decrementPlayersHealth() { //Decreases the player's health
         if (force.canSee(Player.class, this)) {
             Health.setHealth(Health.getHealth()-0.5);
         }

@@ -26,27 +26,22 @@ public class GameWorld extends World
     }
     public void act() {
         if (randomNum==3) {
-            themeRandom.playLoop();
+            theme = themeRandom;
         }
-        else {
-            theme.playLoop();
+        if (level==3) {
+            theme = theme3;
         }
-        if (Health.getHealth()==0)
-        {
-            theme.setVolume(0);
-            themeRandom.setVolume(0);
-            theme3.setVolume(0);
-        }
+        theme.playLoop();
     }
     public void changeLevel() { //Manages game's levels and changes between them
         List objects = getObjects(null);
         removeObjects(objects); //Removes all objects from the world before instantiating the next level's objects
         showText("", getWidth()/2, getHeight()/2); //Removes any text in the center
-        addObject(new Health(), 900, 50);
+        addObject(new Health(), 900, 50); //Resets health
         Health.setHealth(3);
-        addObject(new Scorekeeper(), 25, 50);
+        addObject(new Scorekeeper(), 25, 50); //Resets scorekeeper
         Scorekeeper.setDiamonds(0);
-        for (int i=0; i<=2; i++) //Randomly places three ammo drops
+        for (int i=0; i<=1; i++) //Randomly places three ammo drops
             addObject(new Ammo(), Greenfoot.getRandomNumber(1000), Greenfoot.getRandomNumber(600));
         switch (level) { //Determines which level to build for the player
             case 0:
@@ -60,9 +55,7 @@ public class GameWorld extends World
                 break;
             case 3:
                 level3();
-                 theme.setVolume(0);
-                 themeRandom.setVolume(0);
-                 theme3.playLoop();
+                theme.stop();
                 break;
             default:
                 end();
@@ -75,11 +68,15 @@ public class GameWorld extends World
         addObject(new Health(), 900, 50);
         addObject(new Platform(), 281, 518);
         addObject(new Platform(), 465, 474);
-        addObject(new Platform(), 658, 426);
-        addObject(new Exit(), 862, 373);
+        for (int i=0; i<=2; i++)
+            addObject(new Platform(), 658+72*i, 426);
+        addObject(new Water(), 658+72*3, 426);
+        addObject(new Water(), 680+72*3, 426);
+        addObject(new Exit(), getWidth()-36, 426);
         addObject(new Diamond(), 287, 450);
         addObject(new Diamond(), 470, 405);
         addObject(new Diamond(), 663, 359);
+        addObject(new Enemy(), 470, 405);
         addObject(new Player(), 57, 574);
         Exit.setText("Tutorial Complete");
     }
@@ -175,17 +172,14 @@ public class GameWorld extends World
         Exit.setText("Level 2 Complete");
     }
     public void level3() { //Object placement for level 3
-       
         addObject(new Player(), 36, 550);
-        addObject(new Scorekeeper(), 25, 50);
-        addObject(new Health(), 900, 50);
         addObject(new Platform(), 36, 588);
         for (int i=1; i<5; i++) {
             addObject(new Platform(), 36+(i*width), 588-(i*height/2));
             addObject(new Platform(), 330+i*width, 100);
         }
         for (int i=1; i<22; i++) {
-             addObject(new Platform(), 618, 100+i*height);
+            addObject(new Platform(), 618, 100+i*height);
         }
         addObject(new Platform(), 450, 500);
         addObject(new Platform(), 400, 390);
@@ -208,8 +202,32 @@ public class GameWorld extends World
         addObject(new Enemy(), 820, 160);
         Exit.setText("Level 3 Complete");
     }
+    public void level4() {
+        for (int i=0; i<=4; i++) {
+            addObject(new Platform(), 36, 550-120*i);
+        }
+        for (int i=0; i<=3; i++) {
+            addObject(new Platform(), 190, 500-120*i);
+        }
+        for (int i=0; i<=15; i++) {
+            addObject(new Platform(), 262, getHeight()-12-24*i);
+        }
+        for (int i=0; i<=15; i++) {
+            addObject(new Platform(), 262+72*i, 140);
+        }
+        addObject(new Platform(), 334, 500);
+        addObject(new Platform(), 860, 500);
+        addObject(new Platform(), 430, 230);
+        addObject(new Platform(), 560, 290);
+        addObject(new Exit(), 500, 80);
+    }
     public void end() { //The game's end screen
+        List objects = getObjects(null);
+        removeObjects(objects); //Removes all objects from the world
+        showText("", 55, 27); //Removes scorekeeper text
+        showText("", 55, 75);
         showText("You Won!", getWidth()/2, getHeight()/2);
+        theme.stop();
         Greenfoot.stop();
     }
     public static void incrementLevel() { //Increases the level the player is on

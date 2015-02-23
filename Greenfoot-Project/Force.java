@@ -24,7 +24,6 @@ public class Force
         yComp = y;
         zComp = z;
     }
-    
     public double getXComp() { //Returns the x-component of the vector
         return xComp;
     }
@@ -99,7 +98,7 @@ public class Force
             platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class); //Searches for more overlapping platforms and starts again
         }
     }
-    public void move2(BetterActor actor) {
+    /*public void move2(BetterActor actor) { //Applies movement to actors based on the x-component, y-component, and torque
         double x = actor.getX() + xComp;
         double y = actor.getY() + yComp;
         double z = actor.getRotation() + zComp;
@@ -108,7 +107,7 @@ public class Force
         lookForGround(actor);
         lookForWall2(actor);
         lookForCeiling2(actor);
-    }
+    }*/
     public void gravity(BetterActor actor) { //Applies gravity to actors
         double height = actor.getImage().getHeight()/2;
         Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class);
@@ -118,11 +117,11 @@ public class Force
             addVectorInDirection(270, -1); //Otherwise velocity increases under the influence of gravity
         }
     }
-    public void lookForGround(BetterActor actor) {
+    /*public void lookForGround(BetterActor actor) { //Makes objects react to hitting the ground
         while (isTouchingGround2(actor)) {
             actor.setLocation(actor.getX(), actor.getY()-1); 
         }
-    }
+    }*/
     public void lookForWall(BetterActor actor) { //Looks for walls the object might be colliding with and prevents it from moving through them
         double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1; //Actual width of the object taking into account whitespace in its image
         double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1; //Actual width on the object's left side
@@ -143,15 +142,15 @@ public class Force
             platformMidLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
         }
     }
-    public void lookForWall2(BetterActor actor) {
+    /*public void lookForWall2(BetterActor actor) { //Looks for walls the object might be colliding with and prevents it from moving through them
         while (isTouchingLeftWall(actor)) {
             actor.setLocation(actor.getX()+1, actor.getY());
         }
         while (isTouchingRightWall(actor)) {
             actor.setLocation(actor.getX()-1, actor.getY());
         }
-    }
-    public void lookForCeiling(BetterActor actor) { //Looks for ceilings
+    }*/
+    public void lookForCeiling(BetterActor actor) { //Looks for and reacts to ceilings
         double height = actor.getImage().getHeight()/2 - actor.topExcess - 1;
         Actor platform = actor.betterGetOneObjectAtOffset(0, -(int)height, Platform.class);
         while (actor.getY()<=height || platform!=null) { //While there's a platform or the top of the world above it, the object moves downwards
@@ -160,13 +159,13 @@ public class Force
             setYComp(0); //Object also loses upward momentum as a result of these collisions
         }
     }
-    public void lookForCeiling2(BetterActor actor) {
+    /*public void lookForCeiling2(BetterActor actor) {
         while (isTouchingCeiling2(actor)) {
             actor.setLocation(actor.getX(), actor.getY()+1);
             setYComp(0);
         }
-    }
-    public boolean isTouchingCeiling(BetterActor actor) {
+    }*/
+    public boolean isTouchingCeiling(BetterActor actor) { //Checks to see if touching ceiling
         boolean result = true;
         double height = actor.getImage().getHeight()/2 - actor.topExcess - 1;
         Actor platform = actor.betterGetOneObjectAtOffset(0, -(int)height, Platform.class);
@@ -174,7 +173,7 @@ public class Force
             result = false;
         return result;
     }
-    public boolean isTouchingCeiling2(BetterActor actor) {
+    /*public boolean isTouchingCeiling2(BetterActor actor) { //Checks to see if touching ceiling
         boolean result = false;
         double height = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1; //This represents a quarter of the image's actual height
         ArrayList ceilingPoints = new ArrayList(); //This is the array in which all points involved with detection of ceilings will be kept
@@ -191,8 +190,8 @@ public class Force
         if (actor.getY()<=(actor.getImage().getHeight()/2-actor.topExcess-1))
             result = true;
         return result;
-    }
-    public boolean isTouchingWall(BetterActor actor) {
+    }*/
+    public boolean isTouchingWall(BetterActor actor) { //Checks to see if touching wall
         boolean result = true;
         double widthRight = actor.getImage().getWidth()/2 - actor.rightExcess - 1;
         double widthLeft = actor.getImage().getWidth()/2 - actor.leftExcess - 1;
@@ -208,7 +207,7 @@ public class Force
             result = false;
         return result;
     }
-    public boolean isTouchingWall2(BetterActor actor) {
+    /*public boolean isTouchingWall2(BetterActor actor) { //Checks to see if touching wall
         boolean result = false;
         double height = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1;
         ArrayList wallPoints = new ArrayList();
@@ -223,8 +222,8 @@ public class Force
             }
         }
         return result;
-    }
-    public boolean isTouchingRightWall(BetterActor actor) {
+    }*/
+    /*public boolean isTouchingRightWall(BetterActor actor) { //Checks to see if touching a wall on the right
         boolean result = false;
         double height = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1;
         double width = actor.getImage().getHeight()/2 - actor.rightExcess - 1;
@@ -242,8 +241,8 @@ public class Force
         if (actor.getX()+width>=actor.getWorld().getWidth())
             result = true;
         return result;
-    }
-    public boolean isTouchingLeftWall(BetterActor actor) {
+    }*/
+    /*public boolean isTouchingLeftWall(BetterActor actor) { //Checks to see if touching a wall on the left
         boolean result = false;
         double height = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1;
         double width = actor.getImage().getHeight()/2 - actor.leftExcess - 1;
@@ -261,8 +260,8 @@ public class Force
         if (actor.getX()<=width)
             result = true;
         return result;
-    }
-    public boolean isTouchingGround(BetterActor actor) {
+    }*/
+    public boolean isTouchingGround(BetterActor actor) { //Checks to see if touching the ground
         boolean result = false;
         double height = actor.getImage().getHeight()/2 - actor.botExcess - 1;
         Actor platform = actor.betterGetOneObjectAtOffset(0, (int)height, Platform.class);
@@ -270,7 +269,7 @@ public class Force
             result = true;
         return result;
     }
-    public boolean isTouchingGround2(BetterActor actor) {
+    /*public boolean isTouchingGround2(BetterActor actor) { //Checks to see if touching the ground
         boolean result = false;
         double height = (actor.getImage().getHeight()-actor.botExcess-actor.topExcess)/4 - 1;
         ArrayList groundPoints = new ArrayList();
@@ -287,8 +286,8 @@ public class Force
         if (actor.getY()>=actor.getWorld().getHeight()-(actor.getImage().getHeight()/2 - actor.botExcess - 1))
             result = true;
         return result;
-    }
-    public boolean canSee(Class clss, BetterActor actor) {
+    }*/
+    public boolean canSee(Class clss, BetterActor actor) { //Checks collisions between actors
         return actor.betterGetOneObjectAtOffset(0, 0, clss) != null;
     }
 }

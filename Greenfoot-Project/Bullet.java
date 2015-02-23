@@ -25,7 +25,7 @@ public class Bullet extends BetterActor
         move(10);
         Actor target = getOneIntersectingObject(BetterActor.class);
         if ((target!=null && (target instanceof Platform || target instanceof Enemy) || isAtEdge())) { 
-            if (target instanceof Enemy) {       //When the bullet collides with either the edge of the world or another object,                
+            if (target instanceof Enemy) {       //When the bullet collides with either the edge of the world, a platform, or an enemy,                
                 getWorld().removeObject(target); //it disappears. If it collides with an enemy, the enemy disappears as well.
                 Greenfoot.playSound("WilhelmScream.wav");
             }
