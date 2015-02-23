@@ -9,15 +9,7 @@ import java.util.*;
  */
 public class GameWorld extends World
 {
-
-<<<<<<< Updated upstream
-
-    private static int level = 1;
-
-=======
-    private static int level = 1;
->>>>>>> Stashed changes
-
+    private static int level = 3;
     
     GreenfootSound theme = new GreenfootSound("theme.mp3");
     int height = 24;
@@ -112,6 +104,9 @@ public class GameWorld extends World
         addObject(new Diamond(), 532, 410);
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
+        addObject(new Enemy(), 500, pheight1-38);
+        addObject(new Enemy(), 825, 460);
+        addObject(new Enemy(), 575, pheight1-175);
         Exit.setText("Level 1 Complete");
     }
     public void level2() {
@@ -163,6 +158,7 @@ public class GameWorld extends World
         Exit.setText("Level 2 Complete");
     }
     public void level3() { //Object placement for level 3
+        addObject(new Player(), 36, 550);
         addObject(new Scorekeeper(), 25, 50);
         addObject(new Health(), 900, 50);
         addObject(new Platform(), 36, 588);
@@ -180,6 +176,18 @@ public class GameWorld extends World
         addObject(new Platform(), 175, 280);
         addObject(new Platform(), 100, 350);
         addObject(new Platform(), 285, 170);
+        addObject(new Platform(), 750, 250);
+        addObject(new Platform(), 825, 200);
+        addObject(new Exit(), 900, 350);
+        for (int i=1; i<35; i++) {
+            addObject(new Water(), 150+i*height, 588);
+        }
+        addObject(new Diamond(), 400, 350);
+        addObject(new Diamond(), 182, 240);
+        addObject(new Diamond(), 625, 60);
+        addObject(new Enemy(), 395, 350);
+        addObject(new Enemy(), 600, 60);
+        addObject(new Enemy(), 820, 160);
         Exit.setText("Level 3 Complete");
     }
     

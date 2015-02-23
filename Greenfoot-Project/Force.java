@@ -136,13 +136,11 @@ public class Force
             actor.setLocation(actor.getX()-1, actor.getY());
             platformBotRight = actor.betterGetOneObjectAtOffset((int)widthRight, (int)heightBot, Platform.class);
             platformMidRight = actor.betterGetOneObjectAtOffset((int)widthRight, 0, Platform.class);
-            System.out.println("Right wall");
         }
         while (platformBotLeft!=null || platformMidLeft!=null) { //While there's a platform to its left, the object keeps being pushed right
             actor.setLocation(actor.getX()+1, actor.getY());
             platformBotLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, (int)heightBot, Platform.class);
             platformMidLeft = actor.betterGetOneObjectAtOffset(-(int)widthLeft, 0, Platform.class);
-            System.out.println("Left wall");
         }
     }
     public void lookForWall2(BetterActor actor) {
