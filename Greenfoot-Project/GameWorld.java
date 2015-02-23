@@ -12,6 +12,7 @@ public class GameWorld extends World
     private static int level = 0;
     GreenfootSound theme = new GreenfootSound("theme.mp3"); //Game's main theme
     GreenfootSound themeRandom = new GreenfootSound("randomTheme.wav"); //A random theme
+    GreenfootSound theme3 = new GreenfootSound("secret.wav"); //A theme for the 3rd level
     private int randomNum = Greenfoot.getRandomNumber(4);
     int height = 24;
     int width = 72;
@@ -33,6 +34,8 @@ public class GameWorld extends World
         if (Health.getHealth()==0)
         {
             theme.setVolume(0);
+            themeRandom.setVolume(0);
+            theme3.setVolume(0);
         }
     }
     public void changeLevel() { //Manages game's levels and changes between them
@@ -57,6 +60,9 @@ public class GameWorld extends World
                 break;
             case 3:
                 level3();
+                 theme.setVolume(0);
+                 themeRandom.setVolume(0);
+                 theme3.playLoop();
                 break;
             default:
                 end();
