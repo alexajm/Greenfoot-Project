@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Feb 23 16:31:18 EST 2015
+#Mon Feb 23 16:34:22 EST 2015
 target16.name=Platform
 dependency35.to=Health
 target2.name=Bullet
@@ -88,7 +88,7 @@ dependency35.from=Enemy
 target8.editor.width=1280
 target3.y=310
 target3.x=100
->>>>>>>=Stashed changes
+>>>>>>>=parent of 70fe98e... ITS A SECRETTTT
 target7.typeParameters=
 target8.height=50
 dependency26.to=Player
@@ -180,7 +180,7 @@ target16.height=50
 target7.width=80
 target2.editor.height=712
 target11.editor.height=712
-<<<<<<<=Updated upstream
+<<<<<<<=HEAD
 target13.name=Text
 dependency21.to=Scorekeeper
 target7.naviview.expanded=true
